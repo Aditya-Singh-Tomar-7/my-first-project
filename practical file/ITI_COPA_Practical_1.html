@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 1</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 01 (Practical No. 01)</div>
+        <h1>उद्देश्य: विद्युत आग लगने पर अग्निशमन के तरीकों का अभ्यास करना।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सामग्री (Tools & Equipment Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">क्र.सं.</th>
+                <th style="width: 55%;">उपकरण / सामग्री का नाम</th>
+                <th style="width: 30%;">मात्रा / आकार</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>CO₂ (कार्बन डाइऑक्साइड) फायर एक्सटिंग्यूशर</td>
+                <td>2 Kg / आवश्यकतानुसार</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>सी.टी.सी (CTC) या हैलॉन फायर एक्सटिंग्यूशर</td>
+                <td>1 Kg / आवश्यकतानुसार</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>सूखी रेत से भरी बाल्टियाँ (Fire Buckets)</td>
+                <td>3-4 नग</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>विद्युत रोधी सुरक्षा दस्ताने (Safety Gloves)</td>
+                <td>आवश्यकतानुसार</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <ol>
+        <li><strong>विद्युत आपूर्ति काटना (Isolate Power):</strong> जैसे ही विद्युत उपकरणों या वायरिंग में आग लगने का पता चले, बिना घबराए सबसे पहले मुख्य स्विच (Main Switch) को तुरंत बंद (OFF) कर दें।</li>
+        <li><strong>सचेत करना (Raise Alarm):</strong> आस-पास उपस्थित सभी लोगों और सहपाठियों को सचेत करने के लिए तुरंत जोर से चिल्लाएं या फायर अलार्म बजाएं।</li>
+        <li><strong>पानी का पूर्ण निषेध (Strict Ban on Water):</strong> यह सुनिश्चित करें कि जब तक बिजली पूरी तरह कट न जाए (और कटने के बाद भी), विद्युत आग पर कभी भी पानी या झाग (Foam) वाले एक्सटिंग्यूशर का उपयोग न करें। पानी विद्युत का सुचालक है, जिससे जानलेवा शॉक लग सकता है।</li>
+        <li><strong>सूखी रेत का उपयोग (Use of Dry Sand):</strong> यदि आग बहुत छोटे स्तर पर है, तो सूखी रेत से भरी बाल्टी का उपयोग करके आग के ऊपर रेत डालें। इससे ऑक्सीजन की सप्लाई कट जाती है (Smothering) और आग बुझ जाती है।</li>
+        <li><strong>सही अग्निशामक का चुनाव (Selecting Right Extinguisher):</strong> विद्युत आग (Class C/E) के लिए हमेशा कार्बन डाइऑक्साइड (CO₂) या सी.टी.सी (CTC) अग्निशामक यंत्र का ही चयन करें।</li>
+        <li><strong>PASS विधि का क्रियान्वयन (PASS Method Steps):</strong> अग्निशामक यंत्र को चलाते समय निम्नलिखित चार चरणों का कड़ाई से पालन करें:
+            <ul>
+                <li><span class="step-bold">P (Pull):</span> सबसे पहले यंत्र के ऊपरी हिस्से में लगी सेफ्टी पिन (Safety Pin) को खींचकर बाहर निकालें।</li>
+                <li><span class="step-bold">A (Aim):</span> एक्सटिंग्यूशर के नोजल या हॉर्न को आग की लपटों के ऊपर नहीं, बल्कि आग के बिल्कुल निचले हिस्से (Base) की तरफ निशाना साधें।</li>
+                <li><span class="step-bold">S (Squeeze):</span> हैंडल या लीवर को मजबूती से दबाएं ताकि अंदर मौजूद गैस या केमिकल बाहर निकल सके।</li>
+                <li><span class="step-bold">S (Sweep):</span> नोजल को आग के बेस पर दाएं से बाएं (झाड़ू लगाने की तरह) लगातार घुमाएं, जब तक कि आग पूरी तरह शांत न हो जाए।</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: PASS Method Flowchart -->
+        <svg width="550" height="110" viewBox="0 0 550 110" xmlns="http://www.w3.org/2000/svg">
+            <!-- P Box -->
+            <rect x="10" y="10" width="115" height="90" rx="8" fill="#E3F2FD" stroke="#1E88E5" stroke-width="2"/>
+            <text x="67" y="42" font-family="'DejaVu Sans', sans-serif" font-size="24" font-weight="bold" fill="#1E88E5" text-anchor="middle">P</text>
+            <text x="67" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">PULL</text>
+            <text x="67" y="84" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#555" text-anchor="middle">पिन खींचें</text>
+            
+            <!-- Arrow 1 -->
+            <path d="M 135 55 L 145 55 M 141 50 L 146 55 L 141 60" fill="none" stroke="#757575" stroke-width="2" />
+
+            <!-- A Box -->
+            <rect x="155" y="10" width="115" height="90" rx="8" fill="#E8F5E9" stroke="#43A047" stroke-width="2"/>
+            <text x="212" y="42" font-family="'DejaVu Sans', sans-serif" font-size="24" font-weight="bold" fill="#43A047" text-anchor="middle">A</text>
+            <text x="212" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">AIM</text>
+            <text x="212" y="84" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#555" text-anchor="middle">जड़ पर निशाना साधें</text>
+
+            <!-- Arrow 2 -->
+            <path d="M 280 55 L 290 55 M 286 50 L 291 55 L 286 60" fill="none" stroke="#757575" stroke-width="2" />
+
+            <!-- S Box 1 -->
+            <rect x="300" y="10" width="115" height="90" rx="8" fill="#FFF3E0" stroke="#FB8C00" stroke-width="2"/>
+            <text x="357" y="42" font-family="'DejaVu Sans', sans-serif" font-size="24" font-weight="bold" fill="#FB8C00" text-anchor="middle">S</text>
+            <text x="357" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">SQUEEZE</text>
+            <text x="357" y="84" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#555" text-anchor="middle">लीवर दबाएं</text>
+
+            <!-- Arrow 3 -->
+            <path d="M 425 55 L 435 55 M 431 50 L 436 55 L 431 60" fill="none" stroke="#757575" stroke-width="2" />
+
+            <!-- S Box 2 -->
+            <rect x="445" y="10" width="115" height="90" rx="8" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+            <text x="502" y="42" font-family="'DejaVu Sans', sans-serif" font-size="24" font-weight="bold" fill="#E53935" text-anchor="middle">S</text>
+            <text x="502" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">SWEEP</text>
+            <text x="502" y="84" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#555" text-anchor="middle">दाएं-बाएं घुमाएं</text>
+        </svg>
+        <div class="diagram-caption">चित्र 1.1: अग्निशामक यंत्र का उपयोग करने की PASS विधि</div>
+    </div>
+
+    <h2>3. सुरक्षा सावधानियां (Safety Precautions)</h2>
+    <ul>
+        <li>आग बुझाते समय हमेशा बिजली के उपकरणों और अपने बीच कम से कम 1.5 से 2 मीटर की सुरक्षित दूरी बनाए रखें।</li>
+        <li>कभी भी किसी नंगे या लाइव वायर (Live Wire) को सीधे हाथों से न छुएं।</li>
+        <li>बंद कमरे में CO₂ एक्सटिंग्यूशर का उपयोग करते समय सावधान रहें, क्योंकि यह तेजी से ऑक्सीजन को विस्थापित करता है। आग बुझने के बाद कमरे के खिड़की-दरवाजे खोल दें।</li>
+        <li>हमेशा हवा की दिशा के अनुकूल (धुएं की विपरीत दिशा में) खड़े होकर ही आग बुझाएं ताकि जहरीला धुआं आपके चेहरे पर न आए।</li>
+    </ul>
+
+    <h2>4. परिणाम (Result)</h2>
+    <p>विद्युत आग लगने की स्थिति में अपनाए जाने वाले सुरक्षा नियमों, सही अग्निशामक उपकरणों के चुनाव तथा PASS विधि का उपयोग करके आग पर काबू पाने की प्रक्रिया का सफलतापूर्वक अभ्यास किया गया।</p>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: CO2 Extinguisher Components -->
+        <svg width="220" height="260" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cylinder body -->
+            <rect x="75" y="80" width="70" height="150" rx="12" fill="#D32F2F" stroke="#9A1B1B" stroke-width="2"/>
+            <!-- Label -->
+            <rect x="83" y="120" width="54" height="40" fill="#FFFFFF" rx="4"/>
+            <text x="110" y="142" font-family="'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">CO₂</text>
+            <text x="110" y="153" font-family="'DejaVu Sans', sans-serif" font-size="7" fill="#D32F2F" text-anchor="middle">ELECTRICAL FIRE</text>
+            
+            <!-- Top valve arrangement -->
+            <rect x="100" y="60" width="20" height="20" fill="#757575" />
+            <!-- Handles -->
+            <path d="M 100 62 L 70 52 L 72 45 L 100 58 Z" fill="#424242" />
+            <path d="M 120 62 L 150 48 L 148 40 L 120 58 Z" fill="#424242" />
+            <!-- Safety Pin ring -->
+            <circle cx="110" cy="50" r="6" fill="none" stroke="#FFB300" stroke-width="2.5" />
+            
+            <!-- Hose and Discharge Horn -->
+            <path d="M 120 68 Q 180 85 170 160" fill="none" stroke="#212121" stroke-width="5" stroke-linecap="round"/>
+            <polygon points="170,160 150,210 190,210" fill="#212121" />
+            
+            <!-- Pointer Lines and Labels -->
+            <line x1="25" y1="50" x2="65" y2="52" stroke="#757575" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="20" y="53" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#444" text-anchor="end">सेफ्टी पिन व लीवर</text>
+            
+            <line x1="25" y1="150" x2="72" y2="150" stroke="#757575" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="20" y="153" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#444" text-anchor="end">स्टील बॉडी (सिलेंडर)</text>
+
+            <line x1="185" y1="185" x2="210" y2="185" stroke="#757575" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="213" y="188" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#444" text-anchor="start">डिस्चार्ज हॉर्न</text>
+        </svg>
+        <div class="diagram-caption">चित्र 1.2: कार्बन डाइऑक्साइड (CO₂) अग्निशामक यंत्र के मुख्य भाग</div>
+    </div>
+
+</body>
+</html>

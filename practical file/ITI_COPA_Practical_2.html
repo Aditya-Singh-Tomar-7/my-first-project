@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 2</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 02 (Practical No. 02)</div>
+        <h1>उद्देश्य: विभिन्न अग्निशामक यंत्रों (Fire Extinguishers) का प्रयोग करना।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सामग्री (Tools & Equipment Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">क्र.सं.</th>
+                <th style="width: 45%;">उपकरण / सामग्री का नाम</th>
+                <th style="width: 45%;">विवरण (कलर कोड)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>वाटर फायर एक्सटिंग्यूशर (Water)</td>
+                <td><span class="color-band" style="background-color: red;"></span> लाल रंग का बैंड</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>फोम फायर एक्सटिंग्यूशर (Foam)</td>
+                <td><span class="color-band" style="background-color: #f5deb3;"></span> क्रीम रंग का बैंड</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>ड्राई पाउडर फायर एक्सटिंग्यूशर (Dry Powder / ABC)</td>
+                <td><span class="color-band" style="background-color: blue;"></span> नीला रंग का बैंड</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>कार्बन डाइऑक्साइड फायर एक्सटिंग्यूशर (CO₂)</td>
+                <td><span class="color-band" style="background-color: black;"></span> काला रंग का बैंड</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>सुरक्षा उपकरण (PPE Kit)</td>
+                <td>दस्ताने, सेफ्टी गॉगल्स, आदि</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. आग की श्रेणियां (Classes of Fire)</h2>
+    <p>अग्निशामक यंत्र का प्रयोग करने से पहले आग की श्रेणी (Class) को पहचानना आवश्यक है:</p>
+    <ul>
+        <li><strong>Class A:</strong> ठोस पदार्थ (लकड़ी, कागज, कपड़ा, प्लास्टिक आदि) में लगने वाली आग।</li>
+        <li><strong>Class B:</strong> ज्वलनशील तरल पदार्थ (पेट्रोल, डीजल, पेंट, केरोसिन) में लगने वाली आग।</li>
+        <li><strong>Class C:</strong> ज्वलनशील गैसें (LPG, CNG, मीथेन) में लगने वाली आग।</li>
+        <li><strong>Class D:</strong> ज्वलनशील धातुएँ (मैग्नीशियम, सोडियम, पोटैशियम) में लगने वाली आग।</li>
+        <li><strong>Electrical Fire:</strong> बिजली के शॉर्ट सर्किट या उपकरणों में लगने वाली आग।</li>
+    </ul>
+
+    <h2>3. कार्यविधि (Procedure)</h2>
+    <ol>
+        <li><strong>आग की पहचान (Identify the Fire):</strong> सबसे पहले यह निर्धारित करें कि आग किस श्रेणी (Class A, B, C, D या Electrical) की है।</li>
+        <li><strong>उचित यंत्र का चयन (Select the Right Extinguisher):</strong>
+            <ul>
+                <li><span class="step-bold">Class A (ठोस पदार्थ):</span> वाटर (Water) या ड्राई पाउडर एक्सटिंग्यूशर का प्रयोग करें।</li>
+                <li><span class="step-bold">Class B (तरल पदार्थ):</span> फोम (Foam) या ड्राई पाउडर एक्सटिंग्यूशर का प्रयोग करें।</li>
+                <li><span class="step-bold">Class C (गैस):</span> केवल ड्राई पाउडर (ABC) एक्सटिंग्यूशर का प्रयोग करें।</li>
+                <li><span class="step-bold">Electrical (विद्युत आग):</span> केवल CO₂ या ड्राई पाउडर एक्सटिंग्यूशर का प्रयोग करें।</li>
+            </ul>
+        </li>
+        <li><strong>कलर बैंड जाँचना (Check Color Code):</strong> यंत्र उठाने से पहले उसके ऊपर बनी कलर बैंड (लाल, क्रीम, नीला, या काला) को देखकर पुष्टि करें कि यह सही यंत्र है।</li>
+        <li><strong>प्रेशर चेक करना (Check Pressure Gauge):</strong> यंत्र के प्रेशर गेज को देखें (CO₂ को छोड़कर)। यदि सुई हरे (Green) हिस्से में है, तो यंत्र उपयोग के लिए तैयार है।</li>
+        <li><strong>PASS विधि का प्रयोग (Apply PASS Method):</strong> पिन खींचें (Pull), निशाना लगाएँ (Aim), लीवर दबाएँ (Squeeze) और झाड़ू की तरह घुमाएँ (Sweep) का पालन करते हुए आग बुझाएं।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Types of Extinguishers and their Color Codes -->
+        <svg width="650" height="280" viewBox="0 0 650 280" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Extinguisher 1: Water (Red) -->
+            <g transform="translate(40, 30)">
+                <rect x="25" y="40" width="50" height="110" rx="8" fill="#D32F2F" stroke="#B71C1C" stroke-width="2"/>
+                <!-- Color Band -->
+                <rect x="25" y="70" width="50" height="25" fill="#D32F2F" />
+                <text x="50" y="86" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">WATER</text>
+                <!-- Valve/Handle -->
+                <rect x="42" y="25" width="16" height="15" fill="#757575" />
+                <path d="M 42 28 L 20 20 L 22 15 L 42 24 Z" fill="#424242" />
+                <path d="M 58 28 L 80 18 L 78 12 L 58 24 Z" fill="#424242" />
+                <!-- Hose -->
+                <path d="M 58 35 Q 90 50 80 90" fill="none" stroke="#212121" stroke-width="4"/>
+                <rect x="76" y="90" width="8" height="25" fill="#212121" />
+                <!-- Labels below -->
+                <text x="50" y="175" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">वाटर (Water)</text>
+                <text x="50" y="195" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">लाल बैंड (Red)</text>
+                <text x="50" y="210" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">Class A के लिए</text>
+            </g>
+
+            <!-- Extinguisher 2: Foam (Cream) -->
+            <g transform="translate(190, 30)">
+                <rect x="25" y="40" width="50" height="110" rx="8" fill="#D32F2F" stroke="#B71C1C" stroke-width="2"/>
+                <!-- Color Band -->
+                <rect x="25" y="70" width="50" height="25" fill="#F5DEB3" />
+                <text x="50" y="86" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">FOAM</text>
+                <!-- Valve/Handle -->
+                <rect x="42" y="25" width="16" height="15" fill="#757575" />
+                <path d="M 42 28 L 20 20 L 22 15 L 42 24 Z" fill="#424242" />
+                <path d="M 58 28 L 80 18 L 78 12 L 58 24 Z" fill="#424242" />
+                <!-- Hose -->
+                <path d="M 58 35 Q 90 50 80 90" fill="none" stroke="#212121" stroke-width="4"/>
+                <rect x="76" y="90" width="8" height="25" fill="#212121" />
+                <!-- Labels below -->
+                <text x="50" y="175" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">फोम (Foam)</text>
+                <text x="50" y="195" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">क्रीम बैंड (Cream)</text>
+                <text x="50" y="210" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">Class A, B के लिए</text>
+            </g>
+
+            <!-- Extinguisher 3: Dry Powder (Blue) -->
+            <g transform="translate(340, 30)">
+                <rect x="25" y="40" width="50" height="110" rx="8" fill="#D32F2F" stroke="#B71C1C" stroke-width="2"/>
+                <!-- Color Band -->
+                <rect x="25" y="70" width="50" height="25" fill="#1976D2" />
+                <text x="50" y="86" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">POWDER</text>
+                <!-- Valve/Handle -->
+                <rect x="42" y="25" width="16" height="15" fill="#757575" />
+                <path d="M 42 28 L 20 20 L 22 15 L 42 24 Z" fill="#424242" />
+                <path d="M 58 28 L 80 18 L 78 12 L 58 24 Z" fill="#424242" />
+                <!-- Hose -->
+                <path d="M 58 35 Q 90 50 80 90" fill="none" stroke="#212121" stroke-width="4"/>
+                <rect x="76" y="90" width="8" height="25" fill="#212121" />
+                <!-- Labels below -->
+                <text x="50" y="175" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">ड्राई पाउडर (ABC)</text>
+                <text x="50" y="195" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">नीला बैंड (Blue)</text>
+                <text x="50" y="210" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">Class A, B, C, Elec.</text>
+            </g>
+
+            <!-- Extinguisher 4: CO2 (Black) -->
+            <g transform="translate(490, 30)">
+                <rect x="25" y="40" width="50" height="110" rx="8" fill="#D32F2F" stroke="#B71C1C" stroke-width="2"/>
+                <!-- Color Band -->
+                <rect x="25" y="70" width="50" height="25" fill="#212121" />
+                <text x="50" y="86" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">CO₂</text>
+                <!-- Valve/Handle -->
+                <rect x="42" y="25" width="16" height="15" fill="#757575" />
+                <path d="M 42 28 L 20 20 L 22 15 L 42 24 Z" fill="#424242" />
+                <path d="M 58 28 L 80 18 L 78 12 L 58 24 Z" fill="#424242" />
+                <!-- CO2 Horn -->
+                <path d="M 58 35 Q 90 50 80 80" fill="none" stroke="#212121" stroke-width="5"/>
+                <polygon points="80,80 70,110 90,110" fill="#212121" />
+                <!-- Labels below -->
+                <text x="50" y="175" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">कार्बन डाइऑक्साइड</text>
+                <text x="50" y="195" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">काला बैंड (Black)</text>
+                <text x="50" y="210" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#444" text-anchor="middle">Class B, Electrical</text>
+            </g>
+
+        </svg>
+        <div class="diagram-caption">चित्र 2.1: विभिन्न प्रकार के अग्निशामक यंत्र एवं उनके कलर कोड</div>
+    </div>
+
+    <h2>4. सुरक्षा सावधानियां (Safety Precautions)</h2>
+    <ul>
+        <li>कभी भी बिजली की आग (Electrical Fire) या तेल/पेट्रोल की आग पर वाटर (Water) एक्सटिंग्यूशर का प्रयोग न करें, यह जानलेवा हो सकता है।</li>
+        <li>CO₂ एक्सटिंग्यूशर का उपयोग करते समय उसके हॉर्न (Horn) को न छुएं, क्योंकि वह बहुत ठंडा हो जाता है और 'कोल्ड बर्न' (Cold Burn) कर सकता है।</li>
+        <li>प्रयोग करने से पहले हमेशा प्रेशर गेज चेक करें। यदि प्रेशर कम है, तो उस यंत्र का उपयोग न करें।</li>
+        <li>एक्सटिंग्यूशर का उपयोग करते समय हवा की दिशा को ध्यान में रखें। हमेशा हवा की दिशा में खड़े होकर आग बुझाएं।</li>
+    </ul>
+
+    <h2>5. परिणाम (Result)</h2>
+    <p>विभिन्न प्रकार की आग (Class A, B, C, D, Electrical) को पहचानने तथा उनके अनुसार सही कलर कोड वाले अग्निशामक यंत्रों (Water, Foam, Dry Powder, CO₂) के सुरक्षित उपयोग का सफलतापूर्वक अभ्यास किया गया।</p>
+
+</body>
+</html>

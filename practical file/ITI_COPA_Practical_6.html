@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 6</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 06 (Practical No. 06)</div>
+        <h1>उद्देश्य: सिस्टम ऑप्टिमाइज़ेशन (System Optimization) और विंडोज को रिसेट (Resetting Windows) करने की प्रक्रिया का अभ्यास।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सामग्री (Tools & Equipment Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">क्र.सं.</th>
+                <th style="width: 50%;">उपकरण / सॉफ्टवेयर का नाम</th>
+                <th style="width: 40%;">विवरण / उपयोग</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>कंप्यूटर सिस्टम (PC/Laptop)</td>
+                <td>विंडोज 10 या 11 ऑपरेटिंग सिस्टम के साथ</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>एडमिनिस्ट्रेटर अकाउंट (Admin Access)</td>
+                <td>सिस्टम टूल्स और रिसेट सेटिंग्स को चलाने के लिए</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>विंडोज यूटिलिटी टूल्स (Built-in Tools)</td>
+                <td>Disk Cleanup, Task Manager, Defragmenter</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>इस प्रयोगात्मक कार्य को दो मुख्य भागों में संपन्न किया गया:</p>
+
+    <h3>भाग A: सिस्टम ऑप्टिमाइज़ेशन (System Optimization)</h3>
+    <p>कंप्यूटर की गति (Speed) और कार्यक्षमता बढ़ाने के लिए निम्नलिखित कदम उठाए गए:</p>
+    <ol>
+        <li><strong>अस्थाई फाइलें हटाना (Clearing Temporary Files):</strong> 
+            <ul>
+                <li>कीबोर्ड से <span class="cmd-box">Win + R</span> दबाकर 'Run' डायलॉग बॉक्स खोला गया।</li>
+                <li>क्रमशः <span class="cmd-box">temp</span>, <span class="cmd-box">%temp%</span>, और <span class="cmd-box">prefetch</span> टाइप करके एंटर दबाया गया और खुलने वाले फ़ोल्डर्स की सभी फाइलों को डिलीट किया गया।</li>
+            </ul>
+        </li>
+        <li><strong>डिस्क क्लीनअप का उपयोग (Disk Cleanup):</strong> विंडोज सर्च में 'Disk Cleanup' टाइप करके C: ड्राइव को चुना गया। इसके बाद सिस्टम की कैशे फाइलों, थंबनेल और रीसायकल बिन की अवांछित फाइलों को स्थायी रूप से साफ किया गया।</li>
+        <li><strong>स्टार्टअप ऐप्स को बंद करना (Disabling Startup Apps):</strong> कंप्यूटर बूटिंग स्पीड बढ़ाने के लिए <span class="cmd-box">Ctrl + Shift + Esc</span> दबाकर टास्क मैनेजर (Task Manager) खोला गया। 'Startup Apps' टैब पर जाकर उन भारी और अनावश्यक ऐप्स को 'Disable' किया गया जो कंप्यूटर चालू होते ही बैकग्राउंड में चलने लगते थे।</li>
+        <li><strong>ड्राइव ऑप्टिमाइज़ेशन (Defragment and Optimize Drives):</strong> 'Defragment and Optimize Drives' टूल खोलकर हार्ड डिस्क (HDD) को स्कैन और डीफ्रेग्मेंट किया गया, जिससे फाइलों का बिखराव ठीक हुआ और सिस्टम की स्पीड बढ़ गई।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Optimization Tools Box Layout -->
+        <svg width="600" height="130" viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+            <!-- Center Core -->
+            <rect x="230" y="45" width="140" height="40" rx="5" fill="#003366" stroke="#001F42" stroke-width="2"/>
+            <text x="300" y="70" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">सिस्टम ऑप्टिमाइज़ेशन</text>
+
+            <!-- Tool 1 -->
+            <rect x="20" y="40" width="130" height="50" rx="4" fill="#E1F5FE" stroke="#0288D1" stroke-width="1.5"/>
+            <text x="85" y="62" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#01579B" text-anchor="middle">1. अस्थाई फाइलें साफ</text>
+            <text x="85" y="78" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#0277BD" text-anchor="middle">(temp / %temp%)</text>
+            <path d="M 150 65 L 230 65" fill="none" stroke="#757575" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+            <!-- Tool 2 -->
+            <rect x="450" y="40" width="130" height="50" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+            <text x="515" y="62" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#1B5E20" text-anchor="middle">2. डिस्क क्लीनअप</text>
+            <text x="515" y="78" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#2E7D32" text-anchor="middle">(Disk Cleanup)</text>
+            <path d="M 370 65 L 450 65" fill="none" stroke="#757575" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+            <!-- Links to top/bottom branches if needed, or keeping linear layout for multi-tools -->
+        </svg>
+        <div class="diagram-caption">चित्र 6.1: विंडोज सिस्टम ऑप्टिमाइज़ेशन के प्रमुख घटक</div>
+    </div>
+
+    <h3>भाग B: विंडोज रिसेट करना (Resetting Windows)</h3>
+    <p>यदि कंप्यूटर अत्यधिक हैंग हो रहा हो या गंभीर वायरस आ गया हो, तो विंडोज को बिना फॉर्मेट पेन ड्राइव के रीस्टार्ट/रीसेट करने की विधि निम्नलिखित है:</p>
+    <ol>
+        <li><strong>रिकवरी सेटिंग्स खोलना:</strong> कीबोर्ड से <span class="cmd-box">Win + I</span> दबाकर विंडोज सेटिंग्स (Settings) खोली गई। इसके बाद <strong>System ➔ Recovery</strong> विकल्प पर क्लिक किया गया।</li>
+        <li><strong>Reset PC का चयन:</strong> 'Reset this PC' विकल्प के सामने दिए गए <strong>'Reset PC'</strong> (या Get Started) बटन पर क्लिक किया गया।</li>
+        <li><strong>मुख्य विकल्पों को समझना:</strong> इसके बाद स्क्रीन पर एक डायलॉग बॉक्स खुला जिसमें दो विकल्प मिले:
+            <ul>
+                <li><strong>Keep my files (फाइलें सुरक्षित रखें):</strong> यह विकल्प केवल विंडोज सेटिंग्स और इंस्टॉल किए गए ऐप्स को हटाता है, लेकिन यूजर की पर्सनल फाइलें (Documents, Desktop Files आदि) सुरक्षित रखता है।</li>
+                <li><strong>Remove everything (सब कुछ हटाएं):</strong> यह विकल्प पूरी सी-ड्राइव (C: Drive) को साफ कर देता है। इसमें सभी फाइलें, ऐप्स और सेटिंग्स पूरी तरह डिलीट हो जाती हैं।</li>
+            </ul>
+        </li>
+        <li><strong>विंडोज रीइन्स्टॉल विकल्प:</strong> इसके बाद 'Local Reinstall' चुना गया ताकि कंप्यूटर के अंदर मौजूद फाइलों से ही नई विंडोज रीइंस्टॉल हो सके।</li>
+        <li><strong>प्रक्रिया पूर्ण करना:</strong> अंत में 'Reset' बटन पर क्लिक करने पर कंप्यूटर रीस्टार्ट हुआ और रिसेटिंग प्रतिशत (Resetting %) की स्क्रीन चलने लगी। प्रक्रिया पूरी होने पर सिस्टम एकदम नया जैसा (Fresh OS) खुलकर सामने आया।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Windows Reset Options Decision Tree -->
+        <svg width="620" height="180" viewBox="0 0 620 180" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Root: Reset This PC -->
+            <rect x="230" y="10" width="160" height="45" rx="5" fill="#D32F2F" stroke="#9A1B1B" stroke-width="2"/>
+            <text x="310" y="36" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#FFF" text-anchor="middle">Reset This PC (विंडोज रिसेट)</text>
+            
+            <!-- Branches lines -->
+            <path d="M 310 55 L 310 80 L 140 80 L 140 105" fill="none" stroke="#424242" stroke-width="2"/>
+            <path d="M 310 80 L 480 80 L 480 105" fill="none" stroke="#424242" stroke-width="2"/>
+            
+            <!-- Option 1 Box -->
+            <rect x="40" y="105" width="200" height="60" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+            <text x="140" y="125" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#E65100" text-anchor="middle">1. Keep My Files</text>
+            <text x="140" y="142" font-family="'DejaVu Sans', sans-serif" font-size="9.5" fill="#555" text-anchor="middle">व्यक्तिगत फाइलें बची रहेंगी।</text>
+            <text x="140" y="155" font-family="'DejaVu Sans', sans-serif" font-size="9.5" fill="#CC0000" text-anchor="middle">केवल ऐप्स और सेटिंग्स हटेंगी।</text>
+
+            <!-- Option 2 Box -->
+            <rect x="380" y="105" width="200" height="60" rx="4" fill="#FFEBEE" stroke="#C62828" stroke-width="1.5"/>
+            <text x="480" y="125" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#B71C1C" text-anchor="middle">2. Remove Everything</text>
+            <text x="480" y="142" font-family="'DejaVu Sans', sans-serif" font-size="9.5" fill="#555" text-anchor="middle">पूरा डेटा साफ हो जाएगा।</text>
+            <text x="480" y="155" font-family="'DejaVu Sans', sans-serif" font-size="9.5" fill="#CC0000" text-anchor="middle">सिस्टम पूरी तरह क्लीन इंस्टॉल होगा।</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 6.2: विंडोज रिसेट (Reset) करने के दो मुख्य विकल्प</div>
+    </div>
+
+    <h2>3. सुरक्षा सावधानियां (Safety Precautions)</h2>
+    <ul>
+        <li>'Remove everything' विकल्प चुनने से पहले अपनी महत्वपूर्ण फाइलों का बैकअप किसी बाहरी पेन ड्राइव या डी-ड्राइव (D: Drive) में अवश्य ले लें।</li>
+        <li>विंडोज रिसेट होने की प्रक्रिया में 30 मिनट से 1 घंटे तक का समय लग सकता है, इस दौरान कंप्यूटर की पावर सप्लाई या लैपटॉप का चार्जर बंद नहीं होना चाहिए। बिजली कटने से विंडोज क्रैश हो सकती है।</li>
+        <li>अस्थाई फाइलें डिलीट करते समय केवल 'temp' फ़ोल्डर की फाइलें हटाएं, किसी भी 'System32' या मुख्य विंडोज डायरेक्टरी की फाइल को न छुएं।</li>
+    </ul>
+
+    <h2>4. परिणाम (Result)</h2>
+    <p>सिस्टम यूटिलिटी टूल्स (Disk Cleanup, Defragmenter, Startup apps config) की मदद से कंप्यूटर को ऑप्टिमाइज़ करने तथा विंडोज को सुरक्षित तरीके से रिसेट (Reset) करने की पूरी कार्यविधि का सफलतापूर्वक अभ्यास किया गया।</p>
+
+</body>
+</html>

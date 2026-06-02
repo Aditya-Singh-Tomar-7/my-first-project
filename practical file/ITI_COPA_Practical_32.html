@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 32</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 32 (Practical No. 32)</div>
+        <h1>उद्देश्य: Python में यूज़र इनपुट (User Input) लेकर गणितीय गणना (Calculation) करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>कीबोर्ड और माउस के साथ</td></tr>
+            <tr><td>2</td><td>Python IDLE</td><td>पायथन कोड लिखने व रन करने के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>इस प्रोग्राम में हम यूज़र (उपयोगकर्ता) से दो नंबर मांगेंगे और उन दोनों का जोड़ (Addition) करके स्क्रीन पर दिखाएंगे।</p>
+    
+    <ol>
+        <li>Python IDLE खोलें और <strong>File ➔ New File</strong> दबाकर नई स्क्रिप्ट खोलें।</li>
+        <li>यूज़र से इनपुट लेने के लिए <code>input()</code> फंक्शन का प्रयोग होता है। चूंकि इनपुट टेक्स्ट रूप में आता है, उसे नंबर (Integer) में बदलने के लिए <code>int()</code> का प्रयोग करेंगे।</li>
+        <li>निम्नलिखित कोड टाइप करें:
+            <div class="code-box">
+<span style="color: #757575;"># यूज़र से पहला नंबर लेना</span><br>
+a = int(input("पहला नंबर दर्ज करें: "))<br><br>
+<span style="color: #757575;"># यूज़र से दूसरा नंबर लेना</span><br>
+b = int(input("दूसरा नंबर दर्ज करें: "))<br><br>
+<span style="color: #757575;"># दोनों को जोड़ना</span><br>
+total = a + b<br><br>
+<span style="color: #757575;"># आउटपुट प्रिंट करना</span><br>
+print("दोनों नंबरों का जोड़ है:", total)
+            </div>
+        </li>
+        <li>कोड को <code>calculator.py</code> नाम से सेव (Ctrl + S) करें।</li>
+        <li>प्रोग्राम को रन करने के लिए कीबोर्ड से <span class="cmd-box">F5</span> दबाएं।</li>
+        <li>अब Python Shell आपसे नंबर मांगेगा। कीबोर्ड से नंबर टाइप करके Enter दबाएं।</li>
+    </ol>
+    <div class="diagram-box">
+        <div class="terminal-box" style="margin: 0 auto; width: 80%; border-left: 4px solid #4CAF50;">
+            <span style="color: #FFF;">Python 3.10.4 Shell</span><br><br>
+            <span style="color: #FFF;">पहला नंबर दर्ज करें: </span><span style="color: #4CAF50; font-weight: bold;">45</span><br>
+            <span style="color: #FFF;">दूसरा नंबर दर्ज करें: </span><span style="color: #4CAF50; font-weight: bold;">20</span><br>
+            <span style="color: #FFF;">दोनों नंबरों का जोड़ है: 65</span><br>
+            &gt;&gt;&gt;
+        </div>
+        <div class="diagram-caption">चित्र 32.1: Python Shell में यूज़र इनपुट और गणना (Calculation) का आउटपुट</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>Python में <code>input()</code> तथा <code>int()</code> फंक्शन्स का सफलतापूर्वक उपयोग करके यूज़र से रन-टाइम (Run-time) पर नंबर लिए गए और उनका गणितीय जोड़ (Addition) किया गया।</p>
+</body></html>

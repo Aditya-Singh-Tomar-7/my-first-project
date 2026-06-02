@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 7</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 07 (Practical No. 07)</div>
+        <h1>उद्देश्य: MS Word में नया डॉक्यूमेंट बनाना, उसे सेव करना और टेक्स्ट फॉर्मेटिंग (Text Formatting) का अभ्यास करना।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर (Tools & Software Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">क्र.सं.</th>
+                <th style="width: 45%;">सॉफ्टवेयर / उपकरण का नाम</th>
+                <th style="width: 40%;">विवरण</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>कंप्यूटर सिस्टम (Desktop/Laptop)</td>
+                <td>इनपुट डिवाइस (कीबोर्ड, माउस) के साथ</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>एप्लीकेशन सॉफ्टवेयर</td>
+                <td>Microsoft Word (MS Office Suite)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. कार्यविधि (Procedure)</h2>
+    
+    <h3>A. नया डॉक्यूमेंट बनाना और सेव करना (Create & Save Document)</h3>
+    <ol>
+        <li>सबसे पहले Start Menu पर क्लिक करें और <strong>Word</strong> सर्च करके उसे ओपन करें।</li>
+        <li>स्क्रीन पर <strong>Blank Document</strong> पर क्लिक करें, जिससे एक नया और खाली पेज खुल जाएगा।</li>
+        <li>डॉक्यूमेंट को सुरक्षित करने के लिए File मेन्यू में जाकर <strong>Save As</strong> पर क्लिक करें (या शॉर्टकट <span class="cmd-box">Ctrl + S</span> दबाएं)।</li>
+        <li>अपनी फाइल की लोकेशन (जैसे Desktop या Documents) चुनें, फाइल का नाम टाइप करें और 'Save' बटन पर क्लिक करें।</li>
+    </ol>
+
+    <h3>B. टेक्स्ट फॉर्मेटिंग (Text Formatting Tools)</h3>
+    <p>होम टैब (Home Tab) के 'Font' और 'Paragraph' ग्रुप में टेक्स्ट को आकर्षक बनाने के लिए कई टूल्स होते हैं। किसी भी टूल का उपयोग करने से पहले <strong>टेक्स्ट को सेलेक्ट (Select)</strong> करना आवश्यक है।</p>
+    <ol>
+        <li><strong>Font Style और Size बदलना:</strong>
+            <ul>
+                <li>टेक्स्ट को सेलेक्ट करें और Font ड्रॉपडाउन (जैसे Calibri या Arial) से मनचाहा फॉन्ट चुनें।</li>
+                <li>Font Size बॉक्स (उदा. 11, 12, 14) से अक्षरों का आकार बढ़ाएं या घटाएं।</li>
+            </ul>
+        </li>
+        <li><strong>Bold, Italic, Underline:</strong>
+            <ul>
+                <li>अक्षरों को मोटा (गहरा) करने के लिए <strong>B</strong> <span class="cmd-box">Ctrl + B</span> पर क्लिक करें।</li>
+                <li>अक्षरों को तिरछा करने के लिए <em>I</em> <span class="cmd-box">Ctrl + I</span> पर क्लिक करें।</li>
+                <li>अक्षरों के नीचे लाइन खींचने के लिए <u>U</u> <span class="cmd-box">Ctrl + U</span> पर क्लिक करें।</li>
+            </ul>
+        </li>
+        <li><strong>टेक्स्ट अलाइनमेंट (Text Alignment):</strong> पैराग्राफ ग्रुप में मौजूद अलाइनमेंट बटन्स का उपयोग करके टेक्स्ट की दिशा सेट करें:
+            <ul>
+                <li><strong>Align Left</strong> <span class="cmd-box">Ctrl + L</span>: टेक्स्ट को बायीं ओर रखना।</li>
+                <li><strong>Center</strong> <span class="cmd-box">Ctrl + E</span>: टेक्स्ट को बीच (मध्य) में रखना।</li>
+                <li><strong>Align Right</strong> <span class="cmd-box">Ctrl + R</span>: टेक्स्ट को दायीं ओर रखना।</li>
+                <li><strong>Justify</strong> <span class="cmd-box">Ctrl + J</span>: टेक्स्ट को दोनों किनारों (बायें और दायें) से बराबर करना।</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: MS Word Ribbon Interface (Simplified) -->
+        <svg width="650" height="150" viewBox="0 0 650 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ribbon Background -->
+            <rect x="10" y="10" width="630" height="120" fill="#F3F2F1" stroke="#D2D0CE" stroke-width="2"/>
+            
+            <!-- Tabs -->
+            <rect x="10" y="10" width="630" height="25" fill="#2B579A"/>
+            <text x="30" y="27" font-family="'Segoe UI', sans-serif" font-size="12" fill="#FFF">File</text>
+            <rect x="65" y="10" width="50" height="25" fill="#F3F2F1"/>
+            <text x="75" y="27" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#2B579A">Home</text>
+            <text x="130" y="27" font-family="'Segoe UI', sans-serif" font-size="12" fill="#FFF">Insert</text>
+            <text x="180" y="27" font-family="'Segoe UI', sans-serif" font-size="12" fill="#FFF">Design</text>
+            <text x="240" y="27" font-family="'Segoe UI', sans-serif" font-size="12" fill="#FFF">Layout</text>
+
+            <!-- Font Group Box -->
+            <rect x="20" y="40" width="280" height="80" fill="#FFF" stroke="#E1DFDD" stroke-width="1"/>
+            <text x="140" y="115" font-family="'Segoe UI', sans-serif" font-size="10" fill="#605E5C" text-anchor="middle">Font</text>
+            
+            <!-- Font & Size Dropdown -->
+            <rect x="30" y="50" width="120" height="20" fill="#FFF" stroke="#A19F9D" stroke-width="1"/>
+            <text x="35" y="64" font-family="'Arial', sans-serif" font-size="11" fill="#000">Calibri (Body)</text>
+            <polygon points="140,58 146,58 143,64" fill="#000"/>
+            
+            <rect x="160" y="50" width="40" height="20" fill="#FFF" stroke="#A19F9D" stroke-width="1"/>
+            <text x="165" y="64" font-family="'Arial', sans-serif" font-size="11" fill="#000">11</text>
+            <polygon points="190,58 196,58 193,64" fill="#000"/>
+
+            <!-- B I U Buttons -->
+            <rect x="30" y="80" width="20" height="20" fill="#E1DFDD" stroke="#A19F9D"/>
+            <text x="40" y="95" font-family="'Times New Roman', serif" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">B</text>
+            
+            <rect x="60" y="80" width="20" height="20" fill="#FFF" stroke="#E1DFDD"/>
+            <text x="70" y="95" font-family="'Times New Roman', serif" font-size="14" font-style="italic" fill="#000" text-anchor="middle">I</text>
+            
+            <rect x="90" y="80" width="20" height="20" fill="#FFF" stroke="#E1DFDD"/>
+            <text x="100" y="95" font-family="'Times New Roman', serif" font-size="14" fill="#000" text-anchor="middle" text-decoration="underline">U</text>
+
+            <!-- Text Color Button -->
+            <text x="140" y="95" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">A</text>
+            <rect x="133" y="97" width="14" height="4" fill="#D32F2F"/>
+
+            <!-- Paragraph Group Box -->
+            <rect x="310" y="40" width="200" height="80" fill="#FFF" stroke="#E1DFDD" stroke-width="1"/>
+            <text x="410" y="115" font-family="'Segoe UI', sans-serif" font-size="10" fill="#605E5C" text-anchor="middle">Paragraph</text>
+
+            <!-- Alignment Buttons (Lines) -->
+            <!-- Left -->
+            <rect x="320" y="80" width="20" height="20" fill="#E1DFDD" stroke="#A19F9D"/>
+            <line x1="322" y1="84" x2="335" y2="84" stroke="#000" stroke-width="1.5"/>
+            <line x1="322" y1="88" x2="330" y2="88" stroke="#000" stroke-width="1.5"/>
+            <line x1="322" y1="92" x2="336" y2="92" stroke="#000" stroke-width="1.5"/>
+            <line x1="322" y1="96" x2="328" y2="96" stroke="#000" stroke-width="1.5"/>
+            
+            <!-- Center -->
+            <rect x="350" y="80" width="20" height="20" fill="#FFF" stroke="#E1DFDD"/>
+            <line x1="353" y1="84" x2="367" y2="84" stroke="#000" stroke-width="1.5"/>
+            <line x1="356" y1="88" x2="364" y2="88" stroke="#000" stroke-width="1.5"/>
+            <line x1="352" y1="92" x2="368" y2="92" stroke="#000" stroke-width="1.5"/>
+            <line x1="357" y1="96" x2="363" y2="96" stroke="#000" stroke-width="1.5"/>
+
+            <!-- Right -->
+            <rect x="380" y="80" width="20" height="20" fill="#FFF" stroke="#E1DFDD"/>
+            <line x1="385" y1="84" x2="398" y2="84" stroke="#000" stroke-width="1.5"/>
+            <line x1="390" y1="88" x2="398" y2="88" stroke="#000" stroke-width="1.5"/>
+            <line x1="384" y1="92" x2="398" y2="92" stroke="#000" stroke-width="1.5"/>
+            <line x1="392" y1="96" x2="398" y2="96" stroke="#000" stroke-width="1.5"/>
+
+            <!-- Justify -->
+            <rect x="410" y="80" width="20" height="20" fill="#FFF" stroke="#E1DFDD"/>
+            <line x1="412" y1="84" x2="428" y2="84" stroke="#000" stroke-width="1.5"/>
+            <line x1="412" y1="88" x2="428" y2="88" stroke="#000" stroke-width="1.5"/>
+            <line x1="412" y1="92" x2="428" y2="92" stroke="#000" stroke-width="1.5"/>
+            <line x1="412" y1="96" x2="428" y2="96" stroke="#000" stroke-width="1.5"/>
+            
+            <!-- Bullets -->
+            <circle cx="325" cy="55" r="1.5" fill="#000"/> <line x1="330" y1="55" x2="340" y2="55" stroke="#000" stroke-width="1.5"/>
+            <circle cx="325" cy="60" r="1.5" fill="#000"/> <line x1="330" y1="60" x2="338" y2="60" stroke="#000" stroke-width="1.5"/>
+            <circle cx="325" cy="65" r="1.5" fill="#000"/> <line x1="330" y1="65" x2="342" y2="65" stroke="#000" stroke-width="1.5"/>
+
+            <!-- Pointers -->
+            <line x1="40" y1="120" x2="40" y2="140" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="40" y="148" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#D32F2F" text-anchor="middle">फॉन्ट ग्रुप (Font Group)</text>
+
+            <line x1="330" y1="120" x2="330" y2="140" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="330" y="148" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#D32F2F" text-anchor="middle">पैराग्राफ अलाइनमेंट</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 7.1: MS Word का 'Home' टैब और टेक्स्ट फॉर्मेटिंग टूल्स</div>
+    </div>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Formatting Examples -->
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="10" width="500" height="130" fill="#FAFAFA" stroke="#9E9E9E" stroke-width="2" rx="5"/>
+            
+            <text x="70" y="35" font-family="'Arial', sans-serif" font-size="14" fill="#000">1. Normal Text (सामान्य टेक्स्ट)</text>
+            <text x="70" y="60" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000">2. Bold Text (गहरा/मोटा टेक्स्ट)</text>
+            <text x="70" y="85" font-family="'Arial', sans-serif" font-size="14" font-style="italic" fill="#000">3. Italic Text (तिरछा टेक्स्ट)</text>
+            <text x="70" y="110" font-family="'Arial', sans-serif" font-size="14" text-decoration="underline" fill="#000">4. Underlined Text (रेखांकित टेक्स्ट)</text>
+
+            <line x1="300" y1="20" x2="300" y2="120" stroke="#E0E0E0" stroke-width="2" />
+
+            <text x="320" y="35" font-family="'Arial', sans-serif" font-size="12" fill="#1976D2">Align Left (बायें अलाइन)</text>
+            <text x="430" y="65" font-family="'Arial', sans-serif" font-size="12" fill="#388E3C" text-anchor="middle">Align Center (बीच में अलाइन)</text>
+            <text x="530" y="95" font-family="'Arial', sans-serif" font-size="12" fill="#D32F2F" text-anchor="end">Align Right (दायें अलाइन)</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 7.2: विभिन्न टेक्स्ट फॉर्मेटिंग और अलाइनमेंट के उदाहरण</div>
+    </div>
+
+    <h2>3. सावधानियां (Precautions)</h2>
+    <ul>
+        <li>कंप्यूटर पर काम करते समय अपनी फाइल को बीच-बीच में <span class="cmd-box">Ctrl + S</span> दबाकर सेव करते रहें ताकि बिजली जाने पर डेटा नष्ट न हो।</li>
+        <li>किसी भी टेक्स्ट पर फॉर्मेटिंग (Bold, Italic आदि) लागू करने से पहले माउस की मदद से उसे सेलेक्ट (Select) करना अनिवार्य है, अन्यथा फॉर्मेटिंग काम नहीं करेगी।</li>
+    </ul>
+
+    <h2>4. परिणाम (Result)</h2>
+    <p>Microsoft Word में सफलतापूर्वक एक नया ब्लैंक डॉक्यूमेंट बनाया गया, उसे सेव किया गया, और 'Home' टैब के फॉन्ट तथा पैराग्राफ ग्रुप का उपयोग करके टेक्स्ट पर विभिन्न फॉर्मेटिंग लागू की गई।</p>
+
+</body>
+</html>

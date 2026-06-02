@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 8</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 08 (Practical No. 08)</div>
+        <h1>उद्देश्य: MS Word में टेबल बनाना, पेज सेटअप (Page Setup) करना और प्रिंट निकालना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर (Tools & Software Required)</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम तथा प्रिंटर</td><td>हार्डवेयर (Hardware)</td></tr>
+            <tr><td>2</td><td>Microsoft Word</td><td>एप्लीकेशन सॉफ्टवेयर (Software)</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <h3>A. टेबल बनाना (Creating a Table)</h3>
+    <ol>
+        <li>MS Word ओपन करें और <strong>Insert</strong> टैब पर क्लिक करें।</li>
+        <li>'Table' विकल्प पर क्लिक करें। एक ग्रिड खुलेगा, जिसमें माउस को घुमाकर आवश्यक Row (पंक्ति) और Column (कॉलम) चुनें, या 'Insert Table' पर क्लिक करके मैन्युअली नंबर डालें (जैसे- 4 Columns, 5 Rows)।</li>
+        <li>टेबल बनने के बाद उसमें डेटा भरें।</li>
+    </ol>
+    <h3>B. पेज सेटअप (Page Setup)</h3>
+    <ol>
+        <li>रिबन में <strong>Layout</strong> टैब (या Page Layout) पर जाएं।</li>
+        <li><strong>Margins:</strong> पेज के चारों ओर खाली जगह छोड़ने के लिए Margins पर क्लिक करें और 'Normal' या 'Narrow' चुनें।</li>
+        <li><strong>Orientation:</strong> पेज को सीधा (Portrait) या चौड़ा (Landscape) सेट करें।</li>
+        <li><strong>Size:</strong> प्रिंटिंग पेपर के अनुसार साइज़ चुनें (आमतौर पर A4)।</li>
+    </ol>
+    <h3>C. प्रिंट निकालना (Printing the Document)</h3>
+    <ol>
+        <li>प्रिंट करने के लिए <span class="cmd-box">Ctrl + P</span> दबाएं या File मेन्यू में जाकर 'Print' पर क्लिक करें।</li>
+        <li>'Printer' ड्रॉपडाउन से अपने प्रिंटर का नाम चुनें (उदा. HP LaserJet)।</li>
+        <li>'Copies' बॉक्स में प्रिंट की संख्या (जैसे 1 या 2) डालें।</li>
+        <li>अंत में सबसे ऊपर दिए गए <strong>Print</strong> बटन पर क्लिक करें।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="550" height="150" viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="120" height="100" fill="#FFF" stroke="#424242" stroke-width="2"/>
+            <rect x="30" y="30" width="100" height="80" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1"/>
+            <text x="80" y="75" font-family="'Arial', sans-serif" font-size="12" fill="#1565C0" text-anchor="middle">Portrait</text>
+            
+            <rect x="180" y="40" width="120" height="80" fill="#FFF" stroke="#424242" stroke-width="2"/>
+            <rect x="190" y="50" width="100" height="60" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+            <text x="240" y="85" font-family="'Arial', sans-serif" font-size="12" fill="#2E7D32" text-anchor="middle">Landscape</text>
+
+            <rect x="360" y="20" width="160" height="100" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1" rx="5"/>
+            <rect x="370" y="30" width="60" height="25" fill="#E0E0E0" rx="3"/>
+            <text x="400" y="47" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Print</text>
+            <text x="440" y="47" font-family="'Arial', sans-serif" font-size="11" fill="#424242">Copies: 1</text>
+            <rect x="370" y="70" width="140" height="20" fill="#FFF" stroke="#9E9E9E"/>
+            <text x="375" y="85" font-family="'Arial', sans-serif" font-size="10" fill="#000">Printer: HP LaserJet</text>
+        </svg>
+        <div class="diagram-caption">चित्र 8.1: पेज ओरिएंटेशन (Portrait/Landscape) और प्रिंट डायलॉग बॉक्स</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>MS Word में सफलतापूर्वक टेबल का निर्माण किया गया, लेआउट टैब से A4 साइज़ और मार्जिन सेट किया गया, तथा प्रिंट कमांड देकर हार्ड कॉपी निकाली गई।</p>
+</body></html>

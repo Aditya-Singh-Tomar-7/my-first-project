@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 16</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 16 (Practical No. 16)</div>
+        <h1>उद्देश्य: CMD से IP एड्रेस और नेटवर्क कनेक्टिविटी (Ping) चेक करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण (Tools Required)</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर (PC)</td><td>विंडोज ऑपरेटिंग सिस्टम के साथ</td></tr>
+            <tr><td>2</td><td>Command Prompt (CMD)</td><td>विंडोज का इन-बिल्ट टूल</td></tr>
+            <tr><td>3</td><td>इंटरनेट या LAN कनेक्शन</td><td>नेटवर्क चेक करने के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>सबसे पहले कीबोर्ड से <span class="cmd-box">Win + R</span> दबाएं, <strong>cmd</strong> टाइप करें और Enter दबाकर Command Prompt खोलें।</p>
+    
+    <h3>A. कंप्यूटर का IP एड्रेस पता करना (Checking IP Address)</h3>
+    <ol>
+        <li>कमांड प्रॉम्प्ट (CMD) में टाइप करें: <span class="cmd-box">ipconfig</span> और Enter दबाएं।</li>
+        <li>स्क्रीन पर नेटवर्क की जानकारी आ जाएगी। इसमें <strong>IPv4 Address</strong> के सामने लिखा हुआ नंबर आपके कंप्यूटर का IP एड्रेस होगा (जैसे- 192.168.1.15)।</li>
+    </ol>
+
+    <h3>B. नेटवर्क कनेक्टिविटी (Ping) चेक करना</h3>
+    <p>Ping कमांड का उपयोग यह जांचने के लिए किया जाता है कि आपका कंप्यूटर इंटरनेट या नेटवर्क के किसी दूसरे डिवाइस से जुड़ा है या नहीं।</p>
+    <ol>
+        <li>इंटरनेट चालू है या नहीं, यह चेक करने के लिए टाइप करें: <span class="cmd-box">ping google.com</span> और Enter दबाएं।</li>
+        <li>यदि 'Reply from...' लिखकर आ रहा है, तो इसका मतलब इंटरनेट सही से काम कर रहा है।</li>
+        <li>यदि 'Request timed out' या 'Destination host unreachable' आता है, तो कनेक्शन में समस्या है।</li>
+    </ol>
+    
+    <div class="diagram-box">
+        <div class="terminal-box" style="margin: 0 auto; width: 90%;">
+            C:\Users\Aditya&gt; <span style="color: #fff; font-weight: bold;">ipconfig</span><br><br>
+            Windows IP Configuration<br><br>
+            Ethernet adapter Ethernet:<br>
+            &nbsp;&nbsp;&nbsp;Connection-specific DNS Suffix  . :<br>
+            &nbsp;&nbsp;&nbsp;IPv4 Address. . . . . . . . . . . : <span style="color: #4CAF50; font-weight: bold;">192.168.1.15</span><br>
+            &nbsp;&nbsp;&nbsp;Subnet Mask . . . . . . . . . . . : 255.255.255.0<br>
+            &nbsp;&nbsp;&nbsp;Default Gateway . . . . . . . . . : 192.168.1.1<br><br>
+            C:\Users\Aditya&gt; <span style="color: #fff; font-weight: bold;">ping google.com</span><br><br>
+            Pinging google.com [142.250.193.110] with 32 bytes of data:<br>
+            Reply from 142.250.193.110: bytes=32 time=24ms TTL=117<br>
+            Reply from 142.250.193.110: bytes=32 time=23ms TTL=117<br>
+        </div>
+        <div class="diagram-caption">चित्र 16.1: CMD स्क्रीन पर ipconfig और ping कमांड का आउटपुट</div>
+    </div>
+
+    <h2>3. परिणाम (Result)</h2>
+    <p>Command Prompt (CMD) के माध्यम से ipconfig कमांड चलाकर सिस्टम का IP Address (IPv4) पता किया गया और Ping कमांड चलाकर इंटरनेट नेटवर्क कनेक्टिविटी का सफलतापूर्वक परीक्षण किया गया।</p>
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 23</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 23 (Practical No. 23)</div>
+        <h1>उद्देश्य: Advance Excel में पिवट टेबल (Pivot Table) बनाना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>कीबोर्ड और माउस के साथ</td></tr>
+            <tr><td>2</td><td>Microsoft Excel</td><td>डेटा एनालिसिस के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>Pivot Table एक्सेल का एक एडवांस टूल है जिसका उपयोग बड़े डेटा (Large Data) को जल्दी से समराइज़ (Summarize) और एनालाइज़ करने के लिए किया जाता है।</p>
+    
+    <ol>
+        <li><strong>डेटा तैयार करना:</strong> एक्सेल शीट में एक टेबल बनाएं जिसमें कई कॉलम हों, जैसे- Date, Salesman, Region (North/South), और Sales (₹)। कुछ पंक्तियों में डेटा भरें।</li>
+        <li><strong>डेटा सेलेक्ट करना:</strong> हेडिंग्स के साथ अपने पूरे डेटा को माउस से सेलेक्ट करें।</li>
+        <li><strong>Pivot Table इन्सर्ट करना:</strong> रिबन में <strong>Insert</strong> टैब पर जाएं और <strong>PivotTable</strong> पर क्लिक करें।</li>
+        <li>एक डायलॉग बॉक्स खुलेगा, उसमें 'New Worksheet' चुनें और 'OK' पर क्लिक करें। एक नई शीट खुल जाएगी।</li>
+        <li><strong>डेटा फील्ड्स सेट करना:</strong> दायीं तरफ 'PivotTable Fields' का पैनल खुलेगा। 
+            <ul>
+                <li><strong>Region</strong> को ड्रैग करके <em>Rows</em> बॉक्स में डालें।</li>
+                <li><strong>Sales</strong> को ड्रैग करके <em>Values</em> बॉक्स में डालें।</li>
+            </ul>
+        </li>
+        <li>अब आपको बायीं तरफ एक समराइज़्ड टेबल दिखेगी जिसमें हर रीजन (North, South) की कुल सेल (Total Sales) आटोमेटिक कैलकुलेट हो जाएगी।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Source Data -->
+            <rect x="10" y="20" width="220" height="150" fill="#FFF" stroke="#BDBDBD"/>
+            <rect x="10" y="20" width="220" height="25" fill="#E8F5E9" stroke="#BDBDBD"/>
+            <text x="65" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Region</text>
+            <text x="165" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Sales</text>
+            <text x="65" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">North</text> <text x="165" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">5000</text>
+            <text x="65" y="80" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">South</text> <text x="165" y="80" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">3000</text>
+            <text x="65" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">North</text> <text x="165" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">2000</text>
+            <text x="65" y="120" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">East</text> <text x="165" y="120" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">4000</text>
+            <text x="120" y="160" font-family="'Arial', sans-serif" font-size="11" fill="#757575" text-anchor="middle">Source Data (Main Table)</text>
+
+            <!-- Arrow -->
+            <path d="M 240 85 L 290 85" fill="none" stroke="#2196F3" stroke-width="3"/>
+            <polygon points="285,80 295,85 285,90" fill="#2196F3"/>
+            <text x="265" y="75" font-family="'Arial', sans-serif" font-size="10" fill="#1976D2" text-anchor="middle">Pivot Table</text>
+
+            <!-- Pivot Table Output -->
+            <rect x="310" y="20" width="280" height="150" fill="#FFF" stroke="#4CAF50" stroke-width="2"/>
+            <rect x="310" y="20" width="280" height="25" fill="#4CAF50"/>
+            <text x="400" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Row Labels</text>
+            <text x="510" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#FFF" text-anchor="middle">Sum of Sales</text>
+            
+            <text x="400" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">East</text> <text x="510" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">4000</text>
+            <text x="400" y="80" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">North</text> <text x="510" y="80" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#D32F2F" text-anchor="middle">7000</text>
+            <text x="400" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">South</text> <text x="510" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">3000</text>
+            <rect x="310" y="110" width="280" height="1" fill="#BDBDBD"/>
+            <text x="400" y="130" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Grand Total</text> <text x="510" y="130" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">14000</text>
+            <text x="450" y="160" font-family="'Arial', sans-serif" font-size="11" fill="#757575" text-anchor="middle">Summarized Output (Pivot)</text>
+        </svg>
+        <div class="diagram-caption">चित्र 23.1: रॉ डेटा (Raw Data) को Pivot Table में बदलना</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>बड़े और बिखरे हुए डेटा को समराइज़ (Summarize) करने के लिए MS Excel में सफलतापूर्वक Pivot Table का निर्माण किया गया।</p>
+</body></html>

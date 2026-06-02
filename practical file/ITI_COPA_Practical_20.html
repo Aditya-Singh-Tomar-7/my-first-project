@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 20</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 20 (Practical No. 20)</div>
+        <h1>उद्देश्य: HTML और CSS का उपयोग करके ई-कॉमर्स (Amazon) का फ्रंटएंड क्लोन बनाना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Text Editor</td><td>VS Code (Visual Studio Code)</td></tr>
+            <tr><td>2</td><td>Web Browser</td><td>प्रोजेक्ट को लाइव रन करने के लिए</td></tr>
+            <tr><td>3</td><td>CSS Layout Tools</td><td>Flexbox / Grid Layout</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <h3>A. प्रोजेक्ट संरचना (Project Structure)</h3>
+    <ol>
+        <li>अपने कंप्यूटर में अपनी <strong>'Frontend-fundamentals'</strong> डायरेक्टरी के अंदर एक नया फोल्डर बनाएं। इस फोल्डर में <code>index.html</code> (स्ट्रक्चर के लिए) और <code>style.css</code> (डिजाइन के लिए) फाइलें बनाएं ताकि बाद में इस क्लोन को GitHub पर आसानी से अपलोड किया जा सके।</li>
+        <li>HTML फाइल में <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> का उपयोग करके CSS फाइल को कनेक्ट करें।</li>
+    </ol>
+    <h3>B. नेविगेशन बार (Navbar) बनाना</h3>
+    <ol>
+        <li>HTML में <code>&lt;header&gt;</code> या <code>&lt;nav&gt;</code> टैग लें।</li>
+        <li>इसमें Amazon का लोगो (Logo), एक सर्च बार (Search input box), और कार्ट (Cart) आइकॉन बनाएं।</li>
+        <li>CSS में <code>display: flex;</code> का उपयोग करके इन सभी को एक सीध (Horizontal line) में व्यवस्थित करें और बैकग्राउंड कलर गहरा (Dark Blue/Black) सेट करें।</li>
+    </ol>
+    <h3>C. हीरो सेक्शन और प्रोडक्ट ग्रिड (Hero & Product Grid)</h3>
+    <ol>
+        <li>नेविगेशन बार के ठीक नीचे एक बड़ा बैनर (Hero Image) लगाएं।</li>
+        <li>उसके नीचे अलग-अलग प्रोडक्ट्स दिखाने के लिए HTML के <code>&lt;div class="box"&gt;</code> बनाएं।</li>
+        <li>CSS में <code>display: grid;</code> का उपयोग करके इन्हें 3 या 4 कॉलम के बॉक्स लेआउट (Grid) में बदलें।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="600" height="300" fill="#F3F3F3" stroke="#424242" stroke-width="2"/>
+            <!-- Navbar -->
+            <rect x="0" y="0" width="600" height="50" fill="#0F1111"/>
+            <text x="20" y="32" font-family="'Arial', sans-serif" font-size="20" font-weight="bold" fill="#FFF">amazon.in</text>
+            <rect x="150" y="10" width="300" height="30" fill="#FFF" rx="4"/>
+            <text x="160" y="30" font-family="'Arial', sans-serif" font-size="14" fill="#999">Search Amazon.in</text>
+            <rect x="410" y="10" width="40" height="30" fill="#FEBD69" rx="4"/>
+            <text x="420" y="30" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000">🔍</text>
+            <text x="500" y="32" font-family="'Arial', sans-serif" font-size="14" fill="#FFF" font-weight="bold">Cart 🛒</text>
+            
+            <!-- Hero Banner -->
+            <rect x="20" y="60" width="560" height="80" fill="#232F3E"/>
+            <text x="300" y="105" font-family="'Arial', sans-serif" font-size="20" font-weight="bold" fill="#FFF" text-anchor="middle">Great Indian Festival - Up to 70% Off</text>
+
+            <!-- Product Grid -->
+            <!-- Box 1 -->
+            <rect x="20" y="150" width="130" height="130" fill="#FFF" stroke="#E0E0E0" stroke-width="1"/>
+            <rect x="45" y="160" width="80" height="70" fill="#E1F5FE"/>
+            <text x="85" y="245" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Smartphones</text>
+            
+            <!-- Box 2 -->
+            <rect x="163" y="150" width="130" height="130" fill="#FFF" stroke="#E0E0E0" stroke-width="1"/>
+            <rect x="188" y="160" width="80" height="70" fill="#FCE4EC"/>
+            <text x="228" y="245" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Electronics</text>
+
+            <!-- Box 3 -->
+            <rect x="306" y="150" width="130" height="130" fill="#FFF" stroke="#E0E0E0" stroke-width="1"/>
+            <rect x="331" y="160" width="80" height="70" fill="#E8F5E9"/>
+            <text x="371" y="245" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Fashion</text>
+
+            <!-- Box 4 -->
+            <rect x="449" y="150" width="130" height="130" fill="#FFF" stroke="#E0E0E0" stroke-width="1"/>
+            <rect x="474" y="160" width="80" height="70" fill="#FFF3E0"/>
+            <text x="514" y="245" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Laptops</text>
+        </svg>
+        <div class="diagram-caption">चित्र 20.1: HTML/CSS आधारित ई-कॉमर्स (Amazon) का फ्रंटएंड लेआउट</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>HTML के स्ट्रक्चर और CSS (Flexbox व Grid) लेआउट का उपयोग करके Amazon ई-कॉमर्स वेबसाइट का एक रिस्पॉन्सिव फ्रंटएंड (Frontend Clone) सफलतापूर्वक तैयार किया गया।</p>
+</body></html>

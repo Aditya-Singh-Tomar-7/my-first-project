@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 29</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 29 (Practical No. 29)</div>
+        <h1>उद्देश्य: क्लाउड (Google Drive) पर फाइल्स अपलोड और शेयर करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर व इंटरनेट कनेक्शन</td><td>क्लाउड एक्सेस के लिए</td></tr>
+            <tr><td>2</td><td>Google Account</td><td>जीमेल आईडी (Gmail ID)</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>क्लाउड कंप्यूटिंग का मतलब है इंटरनेट पर डेटा स्टोर करना। Google Drive हमें 15GB फ्री क्लाउड स्टोरेज देता है।</p>
+    
+    <h3>A. फाइल अपलोड करना (Uploading File)</h3>
+    <ol>
+        <li>वेब ब्राउज़र में <strong>drive.google.com</strong> खोलें और अपने जीमेल से लॉग इन करें।</li>
+        <li>स्क्रीन पर बायीं ओर ऊपर <strong>New (नया)</strong> बटन पर क्लिक करें।</li>
+        <li><strong>File upload</strong> का विकल्प चुनें।</li>
+        <li>अपने कंप्यूटर से कोई भी फाइल (जैसे PDF, Photo) सेलेक्ट करें और 'Open' पर क्लिक करें। कुछ ही सेकंड में फाइल क्लाउड (ड्राइव) पर सेव हो जाएगी।</li>
+    </ol>
+    
+    <h3>B. फाइल शेयर करना (Sharing File Link)</h3>
+    <ol>
+        <li>ड्राइव में मौजूद उस फाइल पर माउस से <strong>Right Click (राइट क्लिक)</strong> करें जिसे आप शेयर करना चाहते हैं।</li>
+        <li>मेन्यू में <strong>Share</strong> ➔ <strong>Share</strong> पर क्लिक करें।</li>
+        <li>'General access' में 'Restricted' को बदलकर <strong>'Anyone with the link'</strong> कर दें ताकि लिंक पाने वाला हर व्यक्ति फाइल देख सके।</li>
+        <li><strong>'Copy link'</strong> बटन पर क्लिक करें और Done कर दें। अब आप इस लिंक को WhatsApp या Email पर किसी को भी भेज सकते हैं।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Drive UI -->
+            <rect x="20" y="20" width="200" height="110" fill="#FFF" stroke="#E0E0E0" stroke-width="2" rx="5"/>
+            <rect x="30" y="30" width="90" height="35" fill="#FFF" stroke="#E0E0E0" rx="15"/>
+            <text x="45" y="52" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000">➕ New</text>
+            <!-- Dropdown Menu -->
+            <rect x="40" y="70" width="130" height="50" fill="#FFF" stroke="#BDBDBD" rx="3" filter="drop-shadow(2px 2px 2px rgba(0,0,0,0.2))"/>
+            <text x="50" y="90" font-family="'Arial', sans-serif" font-size="11" fill="#000">📁 New folder</text>
+            <rect x="40" y="95" width="130" height="20" fill="#E3F2FD"/>
+            <text x="50" y="110" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#1A73E8">📄 File upload</text>
+            
+            <!-- Arrow -->
+            <path d="M 230 75 L 270 75" fill="none" stroke="#757575" stroke-width="2" stroke-dasharray="3,3"/>
+            
+            <!-- Sharing Link -->
+            <rect x="290" y="20" width="280" height="110" fill="#FFF" stroke="#E0E0E0" stroke-width="2" rx="5"/>
+            <text x="310" y="45" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000">Share "Project.pdf"</text>
+            
+            <rect x="310" y="60" width="240" height="30" fill="#F5F5F5" stroke="#E0E0E0" rx="3"/>
+            <text x="320" y="78" font-family="'Arial', sans-serif" font-size="11" fill="#000">🌍 Anyone with the link</text>
+            
+            <rect x="310" y="95" width="90" height="25" fill="#FFF" stroke="#BDBDBD" rx="12"/>
+            <text x="325" y="112" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#1A73E8">🔗 Copy link</text>
+        </svg>
+        <div class="diagram-caption">चित्र 29.1: Google Drive में फाइल अपलोड करना और शेयरिंग लिंक बनाना</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>क्लाउड कंप्यूटिंग सर्विस (Google Drive) पर सफलतापूर्वक एक फाइल अपलोड की गई तथा उसका शेयरिंग लिंक जेनरेट करके पब्लिक एक्सेस दिया गया।</p>
+</body></html>

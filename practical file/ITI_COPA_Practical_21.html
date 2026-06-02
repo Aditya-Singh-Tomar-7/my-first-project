@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 21</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 21 (Practical No. 21)</div>
+        <h1>उद्देश्य: JavaScript से अलर्ट बॉक्स बनाना और कंसोल (Console) आउटपुट प्रिंट करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Text Editor</td><td>VS Code (कोडिंग के लिए)</td></tr>
+            <tr><td>2</td><td>Web Browser</td><td>JavaScript इंजन और Developer Tools के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>JavaScript वेब पेज को इंटरैक्टिव (Interactive) बनाती है। HTML में JS कोड को <code>&lt;script&gt;</code> टैग के अंदर लिखा जाता है।</p>
+    
+    <h3>A. अलर्ट बॉक्स (Alert Box) बनाना</h3>
+    <ol>
+        <li>एक नई HTML फाइल बनाएं और उसके <code>&lt;body&gt;</code> टैग के अंदर <code>&lt;script&gt;</code> टैग शुरू करें।</li>
+        <li>स्क्रिप्ट के अंदर टाइप करें: <span class="cmd-box">alert("Welcome to JavaScript!");</span></li>
+        <li>जैसे ही आप इस पेज को ब्राउज़र में खोलेंगे, स्क्रीन के ऊपर एक पॉप-अप बॉक्स (Alert) दिखाई देगा जिस पर यह मैसेज लिखा होगा।</li>
+    </ol>
+
+    <h3>B. कंसोल आउटपुट (Console Output) प्रिंट करना</h3>
+    <ol>
+        <li>उसी <code>&lt;script&gt;</code> टैग के अंदर अगली लाइन में टाइप करें: <span class="cmd-box">console.log("This is a console message.");</span></li>
+        <li>पेज को ब्राउज़र में रिफ्रेश करें।</li>
+        <li>यह मैसेज स्क्रीन पर नहीं दिखेगा। इसे देखने के लिए कीबोर्ड से <strong>F12</strong> (या Right Click ➔ Inspect) दबाकर ब्राउज़र का Developer Tools खोलें।</li>
+        <li>वहाँ <strong>Console</strong> टैब पर क्लिक करें। आपका मैसेज वहां प्रिंट हुआ दिखाई देगा। डेवलपर्स इसका उपयोग गलतियां (Bugs) खोजने के लिए करते हैं।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="180" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Browser Alert -->
+            <rect x="20" y="20" width="300" height="140" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="2"/>
+            <rect x="20" y="20" width="300" height="25" fill="#E0E0E0"/>
+            <text x="30" y="37" font-family="'Arial', sans-serif" font-size="12" fill="#000">127.0.0.1:5500 says</text>
+            
+            <rect x="60" y="60" width="220" height="80" fill="#FFF" stroke="#9E9E9E" rx="5"/>
+            <text x="170" y="85" font-family="'Arial', sans-serif" font-size="13" fill="#000" text-anchor="middle">Welcome to JavaScript!</text>
+            <rect x="130" y="105" width="80" height="25" fill="#1A73E8" rx="4"/>
+            <text x="170" y="122" font-family="'Arial', sans-serif" font-size="12" fill="#FFF" font-weight="bold" text-anchor="middle">OK</text>
+            
+            <!-- Browser Console -->
+            <rect x="340" y="20" width="240" height="140" fill="#242424" stroke="#424242" stroke-width="2"/>
+            <rect x="340" y="20" width="240" height="25" fill="#333"/>
+            <text x="350" y="37" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#FFF">Console</text>
+            
+            <text x="350" y="65" font-family="'Courier New', monospace" font-size="11" fill="#4CAF50">&gt; This is a console message.</text>
+            <text x="350" y="85" font-family="'Courier New', monospace" font-size="11" fill="#9E9E9E">&gt; undefined</text>
+        </svg>
+        <div class="diagram-caption">चित्र 21.1: ब्राउज़र में JavaScript Alert और Developer Console का आउटपुट</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>JavaScript के <code>alert()</code> और <code>console.log()</code> फंक्शन का सफलतापूर्वक उपयोग करके वेब पेज पर पॉप-अप मैसेज और कंसोल आउटपुट प्रदर्शित किया गया।</p>
+</body></html>

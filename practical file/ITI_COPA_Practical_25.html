@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 25</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 25 (Practical No. 25)</div>
+        <h1>उद्देश्य: ई-कॉमर्स (E-Commerce) वेबसाइट पर अकाउंट बनाना और ऑनलाइन शॉपिंग करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>स्मार्टफोन या कंप्यूटर</td><td>इंटरनेट कनेक्शन के साथ</td></tr>
+            <tr><td>2</td><td>वेब ब्राउज़र या ऐप</td><td>Amazon / Flipkart</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <h3>A. नया अकाउंट बनाना (Creating an Account)</h3>
+    <ol>
+        <li>अपने ब्राउज़र में Amazon.in या Flipkart.com खोलें।</li>
+        <li>वेबसाइट के टॉप मेन्यू में <strong>"Sign in / Register"</strong> (या New Customer? Start here) पर क्लिक करें।</li>
+        <li>अपना नाम, मोबाइल नंबर (या ईमेल), और एक मजबूत पासवर्ड (Password) दर्ज करें।</li>
+        <li>'Verify Mobile Number' पर क्लिक करें। आपके फोन पर एक OTP (One Time Password) आएगा। उसे वेबसाइट पर डालकर अकाउंट वेरीफाई करें।</li>
+    </ol>
+    <h3>B. ऑनलाइन शॉपिंग करना (Adding to Cart & Checkout)</h3>
+    <ol>
+        <li>अकाउंट बनने के बाद, सबसे ऊपर दिए गए <strong>Search Bar</strong> में उस प्रोडक्ट का नाम टाइप करें जिसे आप खरीदना चाहते हैं (जैसे "Redmi 12 5G Cover")।</li>
+        <li>सर्च रिजल्ट्स में से अपनी पसंद का प्रोडक्ट चुनें और उसकी कीमत, रेटिंग, व डिस्क्रिप्शन (Description) पढ़ें।</li>
+        <li>पसंद आने पर <strong>"Add to Cart"</strong> (कार्ट में डालें) बटन पर क्लिक करें।</li>
+        <li>ऊपर दायीं ओर <strong>Cart (🛒)</strong> आइकन पर क्लिक करें और <strong>"Proceed to Buy"</strong> पर क्लिक करें।</li>
+        <li>अपना डिलीवरी एड्रेस (Delivery Address) डालें और <strong>"Cash on Delivery (COD)"</strong> विकल्प चुनकर <strong>"Place your order"</strong> पर क्लिक कर दें।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1 -->
+            <rect x="20" y="40" width="100" height="60" fill="#E3F2FD" stroke="#2196F3" stroke-width="2" rx="5"/>
+            <text x="70" y="65" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Step 1</text>
+            <text x="70" y="85" font-family="'Arial', sans-serif" font-size="10" fill="#424242" text-anchor="middle">Create Account</text>
+            
+            <path d="M 125 70 L 155 70" fill="none" stroke="#2196F3" stroke-width="2"/>
+            <polygon points="150,65 160,70 150,75" fill="#2196F3"/>
+            
+            <!-- Step 2 -->
+            <rect x="165" y="40" width="100" height="60" fill="#FFF3E0" stroke="#FF9800" stroke-width="2" rx="5"/>
+            <text x="215" y="65" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Step 2</text>
+            <text x="215" y="85" font-family="'Arial', sans-serif" font-size="10" fill="#424242" text-anchor="middle">Search Product</text>
+
+            <path d="M 270 70 L 300 70" fill="none" stroke="#FF9800" stroke-width="2"/>
+            <polygon points="295,65 305,70 295,75" fill="#FF9800"/>
+
+            <!-- Step 3 -->
+            <rect x="310" y="40" width="100" height="60" fill="#FCE4EC" stroke="#E91E63" stroke-width="2" rx="5"/>
+            <text x="360" y="65" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Step 3</text>
+            <text x="360" y="85" font-family="'Arial', sans-serif" font-size="10" fill="#424242" text-anchor="middle">Add to Cart 🛒</text>
+
+            <path d="M 415 70 L 445 70" fill="none" stroke="#E91E63" stroke-width="2"/>
+            <polygon points="440,65 450,70 440,75" fill="#E91E63"/>
+
+            <!-- Step 4 -->
+            <rect x="455" y="40" width="100" height="60" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2" rx="5"/>
+            <text x="505" y="65" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Step 4</text>
+            <text x="505" y="85" font-family="'Arial', sans-serif" font-size="10" fill="#424242" text-anchor="middle">Place Order (COD)</text>
+        </svg>
+        <div class="diagram-caption">चित्र 25.1: ई-कॉमर्स वेबसाइट पर ऑनलाइन शॉपिंग के मुख्य चरण (Steps)</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>ई-कॉमर्स प्लेटफॉर्म (Amazon) पर सफलतापूर्ण नया यूज़र अकाउंट बनाया गया, OTP वेरीफाई किया गया, और एक प्रोडक्ट को कार्ट में डालकर ऑर्डर प्लेस किया गया।</p>
+</body></html>

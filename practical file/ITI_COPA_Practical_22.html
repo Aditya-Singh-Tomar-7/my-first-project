@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 22</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 22 (Practical No. 22)</div>
+        <h1>उद्देश्य: JavaScript और DOM की मदद से बटन (Button) क्लिक पर HTML टेक्स्ट बदलना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Text Editor</td><td>VS Code (कोडिंग के लिए)</td></tr>
+            <tr><td>2</td><td>Web Browser</td><td>Chrome / Edge</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>Document Object Model (DOM) की मदद से JavaScript हमारे HTML पेज के किसी भी हिस्से को बदल सकती है।</p>
+    
+    <ol>
+        <li><strong>HTML एलिमेंट बनाना:</strong> <code>&lt;body&gt;</code> के अंदर एक हेडिंग बनाएं और उसे एक विशेष ID दें ताकि JS उसे पहचान सके। 
+            <div class="code-box" style="margin-bottom: 5px;">&lt;h2 id="demo"&gt;Old Text&lt;/h2&gt;</div>
+        </li>
+        <li><strong>बटन बनाना:</strong> एक बटन बनाएं और उसमें <code>onclick</code> एट्रिब्यूट (Attribute) लगाएं, जो बटन दबाने पर चलेगा।
+            <div class="code-box" style="margin-bottom: 5px;">&lt;button onclick="changeText()"&gt;Click Me&lt;/button&gt;</div>
+        </li>
+        <li><strong>JavaScript फंक्शन लिखना:</strong> अब <code>&lt;script&gt;</code> टैग के अंदर <code>changeText()</code> नाम का फंक्शन बनाएं।
+            <div class="code-box">
+function changeText() &#123;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "New Text Successfully Changed!";<br>
+&#125;
+            </div>
+        </li>
+        <li><strong>आउटपुट:</strong> पेज रिफ्रेश करें। जैसे ही आप "Click Me" बटन पर क्लिक करेंगे, हेडिंग "Old Text" से बदलकर "New Text Successfully Changed!" हो जाएगी।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Before Click -->
+            <rect x="20" y="20" width="220" height="110" fill="#FFF" stroke="#BDBDBD" stroke-width="2" rx="5"/>
+            <text x="130" y="45" font-family="'Arial', sans-serif" font-size="12" fill="#757575" text-anchor="middle">Before Click (क्लिक से पहले)</text>
+            <text x="130" y="80" font-family="'Arial', sans-serif" font-size="18" font-weight="bold" fill="#D32F2F" text-anchor="middle">Old Text</text>
+            <rect x="90" y="95" width="80" height="25" fill="#E0E0E0" stroke="#9E9E9E" rx="3"/>
+            <text x="130" y="112" font-family="'Arial', sans-serif" font-size="12" fill="#000" text-anchor="middle">Click Me</text>
+            
+            <!-- Arrow -->
+            <path d="M 260 75 L 320 75" fill="none" stroke="#2196F3" stroke-width="4"/>
+            <polygon points="315,70 325,75 315,80" fill="#2196F3"/>
+            <circle cx="290" cy="75" r="12" fill="#FFC107"/>
+            <text x="290" y="80" font-family="'Arial', sans-serif" font-size="14" fill="#000" text-anchor="middle">👆</text>
+
+            <!-- After Click -->
+            <rect x="350" y="20" width="220" height="110" fill="#F1F8E9" stroke="#8BC34A" stroke-width="2" rx="5"/>
+            <text x="460" y="45" font-family="'Arial', sans-serif" font-size="12" fill="#388E3C" text-anchor="middle">After Click (क्लिक के बाद)</text>
+            <text x="460" y="80" font-family="'Arial', sans-serif" font-size="16" font-weight="bold" fill="#2E7D32" text-anchor="middle">New Text Changed!</text>
+            <rect x="420" y="95" width="80" height="25" fill="#E0E0E0" stroke="#9E9E9E" rx="3"/>
+            <text x="460" y="112" font-family="'Arial', sans-serif" font-size="12" fill="#000" text-anchor="middle">Click Me</text>
+        </svg>
+        <div class="diagram-caption">चित्र 22.1: DOM की मदद से बटन क्लिक करने पर HTML कंटेंट का बदलना</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>JavaScript और Document Object Model (DOM) के <code>getElementById</code> और <code>innerHTML</code> प्रॉपर्टी का उपयोग करके बटन क्लिक इवेंट (Event) पर सफलतापूर्वक HTML टेक्स्ट बदला गया।</p>
+</body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 10</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 10 (Practical No. 10)</div>
+        <h1>उद्देश्य: MS Excel में फॉर्मूले (Functions) लगाकर मार्कशीट (Marksheet) बनाना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर (Tools & Software Required)</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>कीबोर्ड और माउस के साथ</td></tr>
+            <tr><td>2</td><td>Microsoft Excel</td><td>फॉर्मूला आधारित गणना के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>Excel में फॉर्मूले की शुरुआत हमेशा बराबर <strong>(=)</strong> के चिह्न से होती है।</p>
+    <ol>
+        <li><strong>टेबल तैयार करना:</strong> Excel में कॉलम A से G तक क्रमशः Roll No, Name, Math, Science, English, Total, और Result की हेडिंग बनाएं। कुछ छात्रों के नाम (जैसे- Aditya) और उनके अंक (Marks) भरें।</li>
+        <li><strong>कुल अंक (SUM Function):</strong> 
+            <ul>
+                <li>Total वाले कॉलम की पहली सेल (F2) पर क्लिक करें।</li>
+                <li>फॉर्मूला टाइप करें: <span class="cmd-box">=SUM(C2:E2)</span> और Enter दबाएं।</li>
+                <li>सेल F2 के कोने (Fill Handle) को पकड़कर नीचे खींचें (Drag करें) ताकि बाकी छात्रों का Total भी निकल जाए।</li>
+            </ul>
+        </li>
+        <li><strong>प्रतिशत या औसत (AVERAGE Function):</strong> 
+            <ul>
+                <li>यदि प्रतिशत निकालना हो, तो नई सेल में टाइप करें: <span class="cmd-box">=AVERAGE(C2:E2)</span> या <span class="cmd-box">=(F2/300)*100</span>।</li>
+            </ul>
+        </li>
+        <li><strong>परिणाम (IF Function):</strong> 
+            <ul>
+                <li>Result वाले कॉलम (G2) में पास या फेल दिखाने के लिए IF फॉर्मूला लगाएं।</li>
+                <li>फॉर्मूला टाइप करें: <span class="cmd-box">=IF(F2>=100, "Pass", "Fail")</span> (मान लें कि पासिंग मार्क्स 100 हैं)। Enter दबाएं।</li>
+                <li>इसे भी नीचे ड्रैग कर दें।</li>
+            </ul>
+        </li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="580" height="130" fill="#FFF" stroke="#4CAF50" stroke-width="2"/>
+            <!-- Col headers -->
+            <rect x="10" y="10" width="80" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="50" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Name (B)</text>
+            
+            <rect x="90" y="10" width="70" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="125" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Math (C)</text>
+
+            <rect x="160" y="10" width="70" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="195" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Sci (D)</text>
+
+            <rect x="230" y="10" width="70" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="265" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Eng (E)</text>
+
+            <rect x="300" y="10" width="130" height="30" fill="#FFF3E0" stroke="#FFCC80"/>
+            <text x="365" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#E65100" text-anchor="middle">Total (F)</text>
+
+            <rect x="430" y="10" width="160" height="30" fill="#E1F5FE" stroke="#81D4FA"/>
+            <text x="510" y="30" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#01579B" text-anchor="middle">Result (G)</text>
+
+            <!-- Row 2 -->
+            <rect x="10" y="40" width="80" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="50" y="65" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Aditya</text>
+            
+            <rect x="90" y="40" width="70" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="125" y="65" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">65</text>
+            
+            <rect x="160" y="40" width="70" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="195" y="65" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">70</text>
+            
+            <rect x="230" y="40" width="70" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="265" y="65" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">85</text>
+
+            <rect x="300" y="40" width="130" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="365" y="65" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#D32F2F" text-anchor="middle">=SUM(C2:E2)</text>
+
+            <rect x="430" y="40" width="160" height="40" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="510" y="65" font-family="'Courier New', monospace" font-size="10" font-weight="bold" fill="#1976D2" text-anchor="middle">=IF(F2>=100,"Pass","Fail")</text>
+            
+            <!-- Row 3 output mock -->
+            <rect x="10" y="80" width="80" height="30" fill="#FAFAFA" stroke="#E0E0E0"/>
+            <text x="50" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#757575" text-anchor="middle">Rohan</text>
+            <rect x="300" y="80" width="130" height="30" fill="#FAFAFA" stroke="#E0E0E0"/>
+            <text x="365" y="100" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#388E3C" text-anchor="middle">220 (Output)</text>
+            <rect x="430" y="80" width="160" height="30" fill="#FAFAFA" stroke="#E0E0E0"/>
+            <text x="510" y="100" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#388E3C" text-anchor="middle">Pass (Output)</text>
+        </svg>
+        <div class="diagram-caption">चित्र 10.1: मार्कशीट में SUM और IF फॉर्मूले का उपयोग</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>MS Excel में SUM, AVERAGE और IF जैसे फंक्शन (Functions) का सफलतापूर्वक उपयोग करके छात्रों की मार्कशीट तैयार की गई।</p>
+</body></html>

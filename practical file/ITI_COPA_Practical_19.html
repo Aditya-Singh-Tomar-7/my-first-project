@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 19</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 19 (Practical No. 19)</div>
+        <h1>उद्देश्य: HTML और CSS का उपयोग करके साधारण वेब पेज (Web Page) बनाना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Text Editor</td><td>VS Code, Notepad++ या Notepad</td></tr>
+            <tr><td>2</td><td>Web Browser</td><td>Chrome या Edge (आउटपुट देखने के लिए)</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <h3>A. HTML का मूल ढांचा (Skeleton) तैयार करना</h3>
+    <ol>
+        <li>अपना टेक्स्ट एडिटर खोलें (जैसे VS Code) और एक नई फाइल बनाएं।</li>
+        <li>उसमें HTML का बेसिक कोड लिखें जिसमें <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, और <code>&lt;body&gt;</code> टैग्स हों।</li>
+        <li>इस फाइल को <strong>index.html</strong> नाम से सेव करें।</li>
+    </ol>
+    <h3>B. HTML टैग्स और CSS स्टाइलिंग जोड़ना</h3>
+    <ol>
+        <li><code>&lt;body&gt;</code> टैग के अंदर <code>&lt;h1&gt;</code> टैग का उपयोग करके मुख्य हेडिंग लिखें।</li>
+        <li><code>&lt;p&gt;</code> (Paragraph) टैग का उपयोग करके कुछ टेक्स्ट लिखें।</li>
+        <li>पेज को सुंदर बनाने के लिए <code>&lt;style&gt;</code> टैग (Internal CSS) का उपयोग करके बैकग्राउंड कलर और फॉन्ट कलर सेट करें।</li>
+        <li>फाइल को सेव करें और ब्राउज़र में खोलकर परिणाम देखें।</li>
+    </ol>
+    <div class="diagram-box">
+        <div class="code-box">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First Web Page&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body &#123; background-color: #f0f8ff; font-family: Arial; &#125;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h1 &#123; color: #ff4500; text-align: center; &#125;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p &#123; color: #333; font-size: 18px; text-align: center; &#125;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Welcome to Web Designing&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is my first HTML and CSS page.&lt;/p&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+        </div>
+        
+        <svg width="500" height="150" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="margin-top: 15px;">
+            <rect x="0" y="0" width="500" height="150" fill="#F0F8FF" stroke="#424242" stroke-width="2"/>
+            <rect x="0" y="0" width="500" height="25" fill="#E0E0E0" stroke="#424242" stroke-width="1"/>
+            <text x="10" y="17" font-family="'Arial', sans-serif" font-size="12" fill="#000">🌍 My First Web Page - Browser</text>
+            
+            <text x="250" y="70" font-family="'Arial', sans-serif" font-size="24" font-weight="bold" fill="#FF4500" text-anchor="middle">Welcome to Web Designing</text>
+            <text x="250" y="100" font-family="'Arial', sans-serif" font-size="16" fill="#333" text-anchor="middle">This is my first HTML and CSS page.</text>
+        </svg>
+        <div class="diagram-caption">चित्र 19.1: HTML/CSS कोड और ब्राउज़र में उसका आउटपुट (Output)</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>HTML के बेसिक टैग्स (h1, p) और CSS (color, background, font) का उपयोग करके सफलतापूर्वक एक साधारण वेब पेज बनाया गया।</p>
+</body></html>

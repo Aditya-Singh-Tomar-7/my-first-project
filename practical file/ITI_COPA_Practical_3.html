@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 3</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 03 (Practical No. 03)</div>
+        <h1>उद्देश्य: कंप्यूटर के आंतरिक (Internal) और बाहरी (External) हार्डवेयर पार्ट्स की पहचान करना।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सामग्री (Tools & Equipment Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">क्र.सं.</th>
+                <th style="width: 50%;">उपकरण / सामग्री का नाम</th>
+                <th style="width: 40%;">मात्रा</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>कंप्यूटर सिस्टम (Desktop PC)</td>
+                <td>1 सेट</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>स्क्रूड्राइवर सेट (Screwdriver Set)</td>
+                <td>1 सेट</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>एंटी-स्टैटिक रिस्ट स्ट्रैप (Anti-static Wrist Strap)</td>
+                <td>1 नग</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>सफाई ब्रश (Cleaning Brush)</td>
+                <td>1 नग</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <ol>
+        <li><strong>विद्युत आपूर्ति बंद करना:</strong> कंप्यूटर को शटडाउन करें और मेन पावर सॉकेट से प्लग निकाल दें।</li>
+        <li><strong>बाहरी भागों (External Parts) की पहचान:</strong>
+            <ul>
+                <li><span class="part-title">मॉनीटर (Monitor):</span> यह एक आउटपुट डिवाइस है जो विजुअल डिस्प्ले प्रदान करता है।</li>
+                <li><span class="part-title">कीबोर्ड और माउस (Keyboard & Mouse):</span> ये मुख्य इनपुट डिवाइस हैं।</li>
+                <li><span class="part-title">सिस्टम यूनिट (System Cabinet/Tower):</span> यह मुख्य केस है जिसके अंदर सभी महत्वपूर्ण कंपोनेंट्स होते हैं।</li>
+                <li><span class="part-title">यू.पी.एस (UPS):</span> यह पावर कट होने पर कंप्यूटर को बैकअप पावर देता है।</li>
+            </ul>
+        </li>
+        <li><strong>कैबिनेट को खोलना:</strong> स्क्रूड्राइवर की मदद से सिस्टम कैबिनेट के साइड पैनल के पेंच खोलें और पैनल को सावधानी से अलग करें। <em>(ध्यान रहे: एंटी-स्टैटिक स्ट्रैप पहन लें ताकि शरीर की स्थैतिक ऊर्जा से पार्ट्स खराब न हों।)</em></li>
+        <li><strong>आंतरिक भागों (Internal Parts) की पहचान:</strong>
+            <ul>
+                <li><span class="part-title">मदरबोर्ड (Motherboard):</span> यह कंप्यूटर का मुख्य सर्किट बोर्ड है जिससे सभी उपकरण जुड़े होते हैं।</li>
+                <li><span class="part-title">प्रोसेसर (CPU):</span> यह मदरबोर्ड पर सॉकेट में लगा होता है और इसके ऊपर कूलिंग फैन (Heat Sink Fan) लगा होता है। यह कंप्यूटर का दिमाग है।</li>
+                <li><span class="part-title">रैम (RAM - Random Access Memory):</span> यह मदरबोर्ड के RAM स्लॉट्स में लगी होती है। यह अस्थाई मेमोरी है।</li>
+                <li><span class="part-title">हार्ड डिस्क / एसएसडी (HDD / SSD):</span> यह डेटा को स्थायी रूप से स्टोर करने के लिए उपयोग की जाती है (जैसे- SATA SSD या HDD)।</li>
+                <li><span class="part-title">एस.एम.पी.एस (SMPS - Switched Mode Power Supply):</span> यह AC करंट को DC में बदलकर कंप्यूटर के विभिन्न पार्ट्स को पावर सप्लाई करता है।</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: External Parts -->
+        <svg width="600" height="220" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Monitor -->
+            <rect x="50" y="30" width="160" height="110" rx="4" fill="#E0E0E0" stroke="#424242" stroke-width="3"/>
+            <rect x="60" y="40" width="140" height="90" fill="#212121" />
+            <path d="M 110 140 L 150 140 L 160 170 L 100 170 Z" fill="#9E9E9E" stroke="#424242" stroke-width="2"/>
+            <rect x="90" y="170" width="80" height="10" fill="#757575" stroke="#424242" stroke-width="2"/>
+            <text x="130" y="200" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">मॉनीटर (Monitor)</text>
+
+            <!-- CPU Cabinet -->
+            <rect x="280" y="20" width="80" height="160" rx="4" fill="#616161" stroke="#212121" stroke-width="3"/>
+            <rect x="290" y="30" width="60" height="20" fill="#424242" />
+            <circle cx="320" cy="80" r="15" fill="#212121" />
+            <circle cx="320" cy="140" r="8" fill="#9E9E9E" />
+            <text x="320" y="200" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">सिस्टम कैबिनेट (CPU)</text>
+
+            <!-- Keyboard -->
+            <rect x="420" y="110" width="140" height="40" rx="4" fill="#E0E0E0" stroke="#424242" stroke-width="2"/>
+            <line x1="430" y1="120" x2="550" y2="120" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="4,4"/>
+            <line x1="430" y1="130" x2="550" y2="130" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="4,4"/>
+            <line x1="430" y1="140" x2="510" y2="140" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="490" y="170" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">कीबोर्ड (Keyboard)</text>
+
+            <!-- Mouse -->
+            <ellipse cx="500" cy="70" rx="15" ry="22" fill="#E0E0E0" stroke="#424242" stroke-width="2"/>
+            <line x1="500" y1="48" x2="500" y2="65" stroke="#424242" stroke-width="2"/>
+            <text x="500" y="105" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">माउस</text>
+        </svg>
+        <div class="diagram-caption">चित्र 3.1: कंप्यूटर के बाहरी हार्डवेयर पार्ट्स (External Parts)</div>
+    </div>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Internal Parts -->
+        <svg width="600" height="280" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cabinet Boundary -->
+            <rect x="20" y="10" width="560" height="260" fill="#ECEFF1" stroke="#78909C" stroke-width="4"/>
+            
+            <!-- SMPS -->
+            <rect x="30" y="20" width="120" height="80" fill="#CFD8DC" stroke="#546E7A" stroke-width="2"/>
+            <circle cx="90" cy="60" r="25" fill="#90A4AE" stroke="#546E7A" stroke-width="1"/>
+            <text x="90" y="65" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#263238" text-anchor="middle">SMPS</text>
+            
+            <!-- Optical Drive / Empty Bay -->
+            <rect x="430" y="20" width="140" height="40" fill="#CFD8DC" stroke="#546E7A" stroke-width="2"/>
+            <text x="500" y="45" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#455A64" text-anchor="middle">ड्राइव बे (Drive Bay)</text>
+
+            <!-- HDD/SSD -->
+            <rect x="430" y="70" width="140" height="60" fill="#B0BEC5" stroke="#455A64" stroke-width="2"/>
+            <circle cx="450" cy="100" r="15" fill="#78909C"/>
+            <text x="510" y="105" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#212121" text-anchor="middle">HDD / SSD</text>
+
+            <!-- Motherboard -->
+            <rect x="160" y="20" width="250" height="240" fill="#C5E1A5" stroke="#689F38" stroke-width="3"/>
+            <text x="285" y="40" font-family="'DejaVu Sans', sans-serif" font-size="14" font-weight="bold" fill="#33691E" text-anchor="middle">मदरबोर्ड (Motherboard)</text>
+            
+            <!-- CPU Socket -->
+            <rect x="235" y="70" width="70" height="70" fill="#E0E0E0" stroke="#757575" stroke-width="2"/>
+            <rect x="245" y="80" width="50" height="50" fill="#BDBDBD" stroke="#616161" stroke-width="2"/>
+            <text x="270" y="110" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#212121" text-anchor="middle">CPU</text>
+
+            <!-- RAM Slots -->
+            <rect x="330" y="60" width="10" height="100" fill="#424242"/>
+            <rect x="350" y="60" width="10" height="100" fill="#424242"/>
+            <text x="345" y="175" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#1B5E20" text-anchor="middle">RAM Slots</text>
+
+            <!-- Expansion Slots (PCIe) -->
+            <rect x="180" y="170" width="100" height="10" fill="#1976D2"/>
+            <rect x="180" y="190" width="100" height="10" fill="#E53935"/>
+            <rect x="180" y="210" width="100" height="10" fill="#E53935"/>
+            <text x="230" y="235" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#1B5E20" text-anchor="middle">PCIe Slots (GPU)</text>
+
+            <!-- CMOS Battery -->
+            <circle cx="340" cy="220" r="10" fill="#FFC107" stroke="#FFA000" stroke-width="2"/>
+            <text x="340" y="245" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#1B5E20" text-anchor="middle">CMOS</text>
+
+            <!-- Connecting Cables (Simplified) -->
+            <path d="M 150 60 Q 200 40 220 30" fill="none" stroke="#D32F2F" stroke-width="3"/>
+            <path d="M 430 100 Q 380 120 410 200" fill="none" stroke="#1976D2" stroke-width="2"/>
+
+        </svg>
+        <div class="diagram-caption">चित्र 3.2: कैबिनेट के अंदर आंतरिक हार्डवेयर पार्ट्स (Internal Parts & Motherboard)</div>
+    </div>
+
+    <h2>3. सुरक्षा सावधानियां (Safety Precautions)</h2>
+    <ul>
+        <li>कंप्यूटर को खोलने से पहले सुनिश्चित करें कि मेन पावर सप्लाई बंद है और प्लग निकला हुआ है।</li>
+        <li>मदरबोर्ड, रैम या किसी भी कार्ड (जैसे ग्राफिक कार्ड) के सुनहरे पिन (Gold Contacts) को नंगे हाथों से न छुएं।</li>
+        <li>शरीर की स्थैतिक बिजली (Static Electricity) से संवेदनशील पार्ट्स को बचाने के लिए एंटी-स्टैटिक रिस्ट स्ट्रैप का उपयोग करें या किसी धातु की सतह को छू लें।</li>
+        <li>कैबिनेट के अंदर पार्ट्स को साफ करते समय हमेशा नर्म ब्रश (Soft Brush) या ब्लोअर का ही इस्तेमाल करें। नमी वाले कपड़े का प्रयोग बिल्कुल न करें।</li>
+    </ul>
+
+    <h2>4. परिणाम (Result)</h2>
+    <p>कंप्यूटर सिस्टम के बाहरी भागों (मॉनिटर, कीबोर्ड, माउस) तथा कैबिनेट के अंदर स्थित आंतरिक भागों (मदरबोर्ड, प्रोसेसर, रैम, एसएमपीएस, हार्ड डिस्क/एसएसडी) की सफलतापूर्वक पहचान की गई।</p>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 24</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 24 (Practical No. 24)</div>
+        <h1>उद्देश्य: Advance Excel में VLOOKUP फंक्शन का उपयोग करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>कीबोर्ड और माउस के साथ</td></tr>
+            <tr><td>2</td><td>Microsoft Excel</td><td>डेटा सर्चिंग (VLOOKUP) के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>VLOOKUP (Vertical Lookup) का उपयोग एक बड़ी टेबल (Database) में से किसी खास वैल्यू को वर्टिकली (कॉलम में) खोजने के लिए किया जाता है।</p>
+    
+    <ol>
+        <li><strong>मेन टेबल (Main Data):</strong> शीट के एक हिस्से (जैसे A1 से C5) में एक टेबल बनाएं। कॉलम हों: <em>Emp ID, Name, Salary</em>. इसमें 4-5 कर्मचारियों का डेटा भरें।</li>
+        <li><strong>सर्च एरिया (Search Area):</strong> उसी शीट में थोड़ा दूर (जैसे E1) पर लिखें "Enter Emp ID:" और F1 को खाली छोड़ दें। E2 में लिखें "Result Name:" और F2 में रिजल्ट के लिए फॉर्मूला लगाएंगे।</li>
+        <li><strong>VLOOKUP फॉर्मूला लगाना:</strong> रिजल्ट वाले सेल (F2) पर क्लिक करें और निम्न फॉर्मूला टाइप करें:
+            <div class="code-box" style="margin: 5px 0;">=VLOOKUP(F1, A1:C5, 2, FALSE)</div>
+            <ul>
+                <li><strong>F1 (Lookup Value):</strong> वह सेल जहाँ हम Emp ID टाइप करेंगे।</li>
+                <li><strong>A1:C5 (Table Array):</strong> वह पूरी टेबल जहाँ से डेटा खोजना है।</li>
+                <li><strong>2 (Col Index Num):</strong> कॉलम नंबर 2, क्योंकि हमें Name (नाम) चाहिए जो दूसरी कॉलम में है।</li>
+                <li><strong>FALSE:</strong> एग्जैक्ट मैच (Exact Match) के लिए।</li>
+            </ul>
+        </li>
+        <li><strong>चेक करना:</strong> अब सेल F1 में कोई भी Emp ID (जैसे 102) टाइप करके Enter दबाएं। F2 में आटोमेटिक उस कर्मचारी का नाम आ जाएगा।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Main Data Table -->
+            <rect x="10" y="20" width="220" height="100" fill="#FFF" stroke="#BDBDBD"/>
+            <rect x="10" y="20" width="220" height="25" fill="#E8F5E9" stroke="#BDBDBD"/>
+            <text x="45" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Emp ID (1)</text>
+            <text x="125" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Name (2)</text>
+            <text x="195" y="37" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Salary (3)</text>
+            
+            <text x="45" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">101</text> <text x="125" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Ramesh</text> <text x="195" y="60" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">15k</text>
+            <rect x="10" y="70" width="220" height="20" fill="#FFF9C4"/> <!-- Highlight searched row -->
+            <text x="45" y="84" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#D32F2F" text-anchor="middle">102</text> <text x="125" y="84" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#1976D2" text-anchor="middle">Suresh</text> <text x="195" y="84" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">20k</text>
+            <text x="45" y="105" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">103</text> <text x="125" y="105" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Aditya</text> <text x="195" y="105" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">25k</text>
+            <text x="120" y="140" font-family="'Arial', sans-serif" font-size="11" fill="#757575" text-anchor="middle">Main Database (A1:C4)</text>
+
+            <!-- Search Area -->
+            <rect x="280" y="30" width="300" height="80" fill="#F1F8E9" stroke="#8BC34A" stroke-width="2" rx="5"/>
+            <text x="350" y="55" font-family="'Arial', sans-serif" font-size="12" fill="#000" text-anchor="middle">Search ID:</text>
+            <rect x="420" y="40" width="80" height="20" fill="#FFF" stroke="#9E9E9E"/>
+            <text x="460" y="55" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#D32F2F" text-anchor="middle">102</text>
+            
+            <text x="350" y="85" font-family="'Arial', sans-serif" font-size="12" fill="#000" text-anchor="middle">Result Name:</text>
+            <rect x="420" y="70" width="150" height="20" fill="#FFF" stroke="#9E9E9E"/>
+            <text x="460" y="85" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#1976D2" text-anchor="middle">Suresh</text>
+            
+            <text x="430" y="140" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#4CAF50" text-anchor="middle">=VLOOKUP(102, Table, 2, FALSE)</text>
+            
+            <!-- Link Arrow -->
+            <path d="M 235 80 Q 260 80 280 50" fill="none" stroke="#D32F2F" stroke-width="2" stroke-dasharray="3,3"/>
+        </svg>
+        <div class="diagram-caption">चित्र 24.1: VLOOKUP द्वारा ID के आधार पर डेटा खोजना</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>VLOOKUP फंक्शन का सफलतापूर्वक उपयोग करके एक बड़े डेटाबेस टेबल में से विशिष्ट Employee ID डालकर उस कर्मचारी का नाम और विवरण खोजा गया।</p>
+</body></html>

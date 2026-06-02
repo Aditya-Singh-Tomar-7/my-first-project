@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 15</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 15 (Practical No. 15)</div>
+        <h1>उद्देश्य: कंप्यूटर नेटवर्क के उपकरणों (Router, Switch) की पहचान करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण (Tools Required)</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">उपकरण का नाम</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>स्विच (Network Switch)</td><td>8-port या 16-port</td></tr>
+            <tr><td>2</td><td>राउटर (Wi-Fi Router)</td><td>Wireless Router</td></tr>
+            <tr><td>3</td><td>LAN केबल्स (RJ-45)</td><td>डिवाइसेस को जोड़ने के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि और उपकरणों की पहचान (Procedure & Identification)</h2>
+    <h3>A. स्विच (Switch) की पहचान</h3>
+    <ol>
+        <li>स्विच एक आयताकार बॉक्स (Rectangular box) जैसा होता है जिसके पीछे या आगे कई सारे छोटे-छोटे पोर्ट्स (LAN Ports) होते हैं (जैसे 8, 16, या 24 पोर्ट)।</li>
+        <li>स्विच का मुख्य कार्य एक ही नेटवर्क (Local Area Network - LAN) के अंदर कई सारे कंप्यूटरों को आपस में जोड़ना है।</li>
+        <li>यह MAC Address (मैक एड्रेस) के आधार पर डेटा को केवल सही कंप्यूटर तक भेजता है।</li>
+    </ol>
+    <h3>B. राउटर (Router) की पहचान</h3>
+    <ol>
+        <li>राउटर में आमतौर पर पीछे की तरफ एंटीना (Antennas) लगे होते हैं (यदि यह वाई-फाई राउटर है) और इसमें पोर्ट्स की संख्या स्विच की तुलना में कम (आमतौर पर 4 या 5) होती है।</li>
+        <li>राउटर में एक खास पोर्ट होता है जिसे WAN (Wide Area Network) पोर्ट या Internet पोर्ट कहते हैं, जो आमतौर पर नीले या पीले रंग का होता है।</li>
+        <li>राउटर का मुख्य कार्य दो अलग-अलग नेटवर्क्स (जैसे आपके घर/लैब का नेटवर्क और इंटरनेट) को आपस में जोड़ना और डेटा पैकेट्स को सही रास्ता (Route) दिखाना है। यह IP Address पर काम करता है।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Router -->
+            <rect x="50" y="80" width="160" height="60" rx="10" fill="#E0E0E0" stroke="#424242" stroke-width="2"/>
+            <!-- Router Antennas -->
+            <path d="M 70 80 L 60 20 M 190 80 L 200 20" fill="none" stroke="#212121" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="60" cy="20" r="4" fill="#212121"/> <circle cx="200" cy="20" r="4" fill="#212121"/>
+            <!-- Router Ports & Lights -->
+            <rect x="60" y="100" width="140" height="15" fill="#424242"/>
+            <circle cx="80" cy="125" r="3" fill="#4CAF50"/> <circle cx="95" cy="125" r="3" fill="#4CAF50"/> <circle cx="110" cy="125" r="3" fill="#4CAF50"/>
+            <text x="130" y="165" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">राउटर (Router)</text>
+            
+            <!-- Switch -->
+            <rect x="300" y="70" width="250" height="70" fill="#CFD8DC" stroke="#455A64" stroke-width="2"/>
+            <rect x="310" y="90" width="230" height="30" fill="#263238"/>
+            <!-- Ports inside switch -->
+            <rect x="320" y="95" width="20" height="20" fill="#FFF"/> <rect x="345" y="95" width="20" height="20" fill="#FFF"/>
+            <rect x="370" y="95" width="20" height="20" fill="#FFF"/> <rect x="395" y="95" width="20" height="20" fill="#FFF"/>
+            <rect x="420" y="95" width="20" height="20" fill="#FFF"/> <rect x="445" y="95" width="20" height="20" fill="#FFF"/>
+            <rect x="470" y="95" width="20" height="20" fill="#FFF"/> <rect x="495" y="95" width="20" height="20" fill="#FFF"/>
+            <text x="425" y="165" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#000" text-anchor="middle">नेटवर्क स्विच (Switch - 8 Ports)</text>
+        </svg>
+        <div class="diagram-caption">चित्र 15.1: वाई-फाई राउटर और 8-पोर्ट नेटवर्क स्विच की पहचान</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>नेटवर्किंग उपकरणों, विशेष रूप से राउटर और स्विच की भौतिक बनावट (Physical appearance), पोर्ट्स और उनके कार्यों (LAN vs WAN) की सफलतापूर्वक पहचान की गई.</p>
+</body></html>

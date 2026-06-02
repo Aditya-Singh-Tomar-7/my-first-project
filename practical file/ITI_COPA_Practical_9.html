@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 9</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 09 (Practical No. 09)</div>
+        <h1>उद्देश्य: MS Excel में डेटा एंट्री करना और बेसिक फॉर्मेटिंग का अभ्यास करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर (Tools & Software Required)</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>कीबोर्ड और माउस के साथ</td></tr>
+            <tr><td>2</td><td>Microsoft Excel</td><td>स्प्रेडशीट सॉफ्टवेयर</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <h3>A. एक्सेल वर्कबुक खोलना और डेटा एंट्री (Data Entry)</h3>
+    <ol>
+        <li>Start Menu से <strong>Excel</strong> ओपन करें और <strong>Blank Workbook</strong> पर क्लिक करें।</li>
+        <li>एक्सेल शीट रो (Rows - 1,2,3...) और कॉलम (Columns - A,B,C...) में बंटी होती है। किसी भी बॉक्स (Cell) पर क्लिक करें, जैसे A1।</li>
+        <li>सेल A1 में 'Roll No', B1 में 'Name' और C1 में 'Course' टाइप करें। अगली सेल में जाने के लिए <span class="cmd-box">Tab</span> या <span class="cmd-box">Enter</span> की (Key) का प्रयोग करें।</li>
+        <li>नीचे की पंक्तियों में छात्रों का डेटा भरें (जैसे- 101, Aditya, COPA)।</li>
+    </ol>
+    <h3>B. बेसिक फॉर्मेटिंग (Basic Formatting)</h3>
+    <ol>
+        <li><strong>Borders (बॉर्डर लगाना):</strong> पूरे डेटा को माउस से सेलेक्ट करें। 'Home' टैब में Font ग्रुप के अंदर 'Borders' आइकॉन पर क्लिक करें और <strong>All Borders</strong> चुनें।</li>
+        <li><strong>Merge & Center (मर्ज और सेंटर):</strong> सबसे ऊपर एक नई पंक्ति (Row) लें। A1 से C1 तक सेलेक्ट करें और 'Merge & Center' बटन पर क्लिक करें। इसमें टेबल की हेडिंग (जैसे- "Student Details") लिखें।</li>
+        <li><strong>Cell Color (सेल में रंग भरना):</strong> हेडिंग वाले सेल को सेलेक्ट करके 'Fill Color' (बाल्टी का आइकॉन) पर क्लिक करें और अपनी पसंद का रंग चुनें।</li>
+        <li><strong>Text Alignment:</strong> डेटा को सेलेक्ट करके Alignment ग्रुप से 'Center Align' पर क्लिक करें ताकि टेक्स्ट सेल के बीचों-बीच आ जाए।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="550" height="160" viewBox="0 0 550 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="510" height="120" fill="#FFF" stroke="#4CAF50" stroke-width="2"/>
+            <!-- Row headers -->
+            <rect x="20" y="20" width="30" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <rect x="20" y="50" width="30" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="35" y="70" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">1</text>
+            <rect x="20" y="80" width="30" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="35" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">2</text>
+            <rect x="20" y="110" width="30" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="35" y="130" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">3</text>
+            
+            <!-- Col headers -->
+            <rect x="50" y="20" width="100" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="100" y="40" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">A</text>
+            <rect x="150" y="20" width="200" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="250" y="40" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">B</text>
+            <rect x="350" y="20" width="180" height="30" fill="#E8F5E9" stroke="#A5D6A7"/>
+            <text x="440" y="40" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">C</text>
+
+            <!-- Cells -->
+            <rect x="50" y="50" width="480" height="30" fill="#FFF9C4" stroke="#BDBDBD"/> <!-- Merged -->
+            <text x="290" y="70" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Student Details (Merged & Centered)</text>
+
+            <rect x="50" y="80" width="100" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="100" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Roll No</text>
+            <rect x="150" y="80" width="200" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="250" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Name</text>
+            <rect x="350" y="80" width="180" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="440" y="100" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Course</text>
+
+            <rect x="50" y="110" width="100" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="100" y="130" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">101</text>
+            <rect x="150" y="110" width="200" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="250" y="130" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">Aditya</text>
+            <rect x="350" y="110" width="180" height="30" fill="#FFF" stroke="#BDBDBD"/>
+            <text x="440" y="130" font-family="'Arial', sans-serif" font-size="11" fill="#000" text-anchor="middle">COPA</text>
+        </svg>
+        <div class="diagram-caption">चित्र 9.1: MS Excel में डेटा एंट्री, बॉर्डर और Merge & Center का उपयोग</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>MS Excel में एक नई वर्कबुक बनाकर उसमें सफलतापूर्वक डेटा एंटर किया गया, तथा All Borders, Fill Color और Merge & Center टूल्स का उपयोग करके बेसिक फॉर्मेटिंग की गई।</p>
+</body></html>

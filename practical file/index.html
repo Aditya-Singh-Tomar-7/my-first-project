@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITI COPA Practical File - Aditya</title>
+    <style>
+        :root {
+            --primary-color: #0F1111;
+            --secondary-color: #232F3E;
+            --accent-color: #cc0000;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #333;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #FEBD69;
+        }
+
+        .student-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .student-info strong {
+            color: #FEBD69;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color), #3a4b60);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: -25px auto 30px auto;
+            display: flex;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-container button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #a00000;
+        }
+
+        /* Chapters & Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chapter-title {
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chapter-title i {
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Practical Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .prac-number {
+            display: inline-block;
+            background-color: #ffebee;
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: max-content;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #111;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .card-btn {
+            text-decoration: none;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: block;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .student-info {
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ITI <span>COPA</span></h1>
+        </div>
+        <div class="student-info">
+            <strong>Aditya Singh Tomar</strong><br>
+            Trade: COPA | Govt. ITI Sawayajpur Hardoi
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>My Practical File Record</h2>
+        <p>A complete collection of all 32 practicals covering HTML, CSS, MySQL, Python, and more.</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search practicals by name or number..." onkeyup="searchPracticals()">
+        <button onclick="searchPracticals()">Search</button>
+    </div>
+
+    <div class="container" id="mainContainer">
+        <!-- Javascript will inject the chapters and cards here -->
+    </div>
+
+    <footer>
+        <p>Created with HTML, CSS & JS | Frontend Fundamentals Project</p>
+    </footer>
+
+    <script>
+        // Data Array for all 32 practicals categorized by Chapters
+        const practicalsData = [
+            {
+                chapter: "Safety & First Aid",
+                items: [
+                    { no: 1, title: "विद्युत आग लगने पर अग्निशमन के तरीकों का अभ्यास", file: "ITI_COPA_Practical_1.html" },
+                    { no: 2, title: "विभिन्न अग्निशामक यंत्रों (Fire Extinguishers) का प्रयोग", file: "ITI_COPA_Practical_2.html" }
+                ]
+            },
+            {
+                chapter: "Computer Hardware & Windows",
+                items: [
+                    { no: 3, title: "कंप्यूटर के आंतरिक और बाहरी हार्डवेयर पार्ट्स की पहचान", file: "ITI_COPA_Practical_3.html" },
+                    { no: 4, title: "पेरीफेरल डिवाइस कनेक्ट करना और सिस्टम बूट करना", file: "ITI_COPA_Practical_4.html" },
+                    { no: 5, title: "विंडोज ऑपरेटिंग सिस्टम और बूटिंग प्रक्रिया का परिचय", file: "ITI_COPA_Practical_5.html" },
+                    { no: 6, title: "सिस्टम ऑप्टिमाइज़ेशन और विंडोज को रिसेट करना", file: "ITI_COPA_Practical_6.html" }
+                ]
+            },
+            {
+                chapter: "MS Office (Word, Excel, PowerPoint)",
+                items: [
+                    { no: 7, title: "MS Word में नया डॉक्यूमेंट बनाना और टेक्स्ट फॉर्मेटिंग", file: "ITI_COPA_Practical_7.html" },
+                    { no: 8, title: "MS Word में टेबल बनाना, पेज सेटअप और प्रिंट निकालना", file: "ITI_COPA_Practical_8.html" },
+                    { no: 9, title: "MS Excel में डेटा एंट्री करना और बेसिक फॉर्मेटिंग", file: "ITI_COPA_Practical_9.html" },
+                    { no: 10, title: "MS Excel में फॉर्मूले (Functions) लगाकर मार्कशीट बनाना", file: "ITI_COPA_Practical_10.html" },
+                    { no: 11, title: "MS PowerPoint में नई प्रेजेंटेशन बनाना और चित्र लगाना", file: "ITI_COPA_Practical_11.html" },
+                    { no: 12, title: "प्रेजेंटेशन में एनिमेशन लगाना और स्लाइड शो रन करना", file: "ITI_COPA_Practical_12.html" }
+                ]
+            },
+            {
+                chapter: "Database Management (MySQL)",
+                items: [
+                    { no: 13, title: "MySQL में डेटाबेस और टेबल बनाकर डेटा इन्सर्ट करना", file: "ITI_COPA_Practical_13.html" },
+                    { no: 14, title: "MySQL डेटाबेस का बैकअप (Export) लेना", file: "ITI_COPA_Practical_14.html" }
+                ]
+            },
+            {
+                chapter: "Networking & Internet",
+                items: [
+                    { no: 15, title: "कंप्यूटर नेटवर्क के उपकरणों (Router, Switch) की पहचान", file: "ITI_COPA_Practical_15.html" },
+                    { no: 16, title: "CMD से IP एड्रेस और नेटवर्क कनेक्टिविटी (Ping) चेक करना", file: "ITI_COPA_Practical_16.html" },
+                    { no: 17, title: "वेब ब्राउज़र से सुरक्षित इंटरनेट सर्फिंग और ईमेल भेजना", file: "ITI_COPA_Practical_17.html" },
+                    { no: 18, title: "सर्च इंजन से जानकारी खोजना और फाइल डाउनलोड/अपलोड करना", file: "ITI_COPA_Practical_18.html" }
+                ]
+            },
+            {
+                chapter: "Web Designing (HTML, CSS, JS)",
+                items: [
+                    { no: 19, title: "HTML और CSS का उपयोग करके साधारण वेब पेज बनाना", file: "ITI_COPA_Practical_19.html" },
+                    { no: 20, title: "HTML/CSS से ई-कॉमर्स (Amazon) का फ्रंटएंड क्लोन बनाना", file: "ITI_COPA_Practical_20.html" },
+                    { no: 21, title: "JavaScript से अलर्ट बॉक्स बनाना और कंसोल आउटपुट प्रिंट करना", file: "ITI_COPA_Practical_21.html" },
+                    { no: 22, title: "JS और DOM की मदद से बटन क्लिक पर HTML टेक्स्ट बदलना", file: "ITI_COPA_Practical_22.html" }
+                ]
+            },
+            {
+                chapter: "Advance Excel & E-commerce",
+                items: [
+                    { no: 23, title: "Advance Excel में पिवट टेबल (Pivot Table) बनाना", file: "ITI_COPA_Practical_23.html" },
+                    { no: 24, title: "Advance Excel में VLOOKUP फंक्शन का उपयोग करना", file: "ITI_COPA_Practical_24.html" },
+                    { no: 25, title: "ई-कॉमर्स वेबसाइट पर अकाउंट बनाना और ऑनलाइन शॉपिंग करना", file: "ITI_COPA_Practical_25.html" },
+                    { no: 26, title: "ई-कॉमर्स पर सुरक्षित ऑनलाइन भुगतान (UPI/Digital Payment)", file: "ITI_COPA_Practical_26.html" }
+                ]
+            },
+            {
+                chapter: "Cyber Security & Cloud Computing",
+                items: [
+                    { no: 27, title: "विंडोज सिक्योरिटी / एंटीवायरस से कंप्यूटर को स्कैन करना", file: "ITI_COPA_Practical_27.html" },
+                    { no: 28, title: "सुरक्षित ब्राउज़िंग का अभ्यास और मजबूत पासवर्ड बनाना", file: "ITI_COPA_Practical_28.html" },
+                    { no: 29, title: "क्लाउड (Google Drive) पर फाइल्स अपलोड और शेयर करना", file: "ITI_COPA_Practical_29.html" },
+                    { no: 30, title: "Google Docs में ऑनलाइन डॉक्यूमेंट बनाना और डाउनलोड करना", file: "ITI_COPA_Practical_30.html" }
+                ]
+            },
+            {
+                chapter: "Python Programming",
+                items: [
+                    { no: 31, title: "Python IDLE में पहला प्रोग्राम बनाना और वेरिएबल्स का उपयोग", file: "ITI_COPA_Practical_31.html" },
+                    { no: 32, title: "Python में यूज़र इनपुट लेकर गणितीय गणना (Calculation) करना", file: "ITI_COPA_Practical_32.html" }
+                ]
+            }
+        ];
+
+        const container = document.getElementById('mainContainer');
+
+        // Function to render the UI
+        function renderPracticals(data) {
+            container.innerHTML = ""; // Clear existing
+
+            if (data.length === 0 || data.every(ch => ch.items.length === 0)) {
+                container.innerHTML = "<h3 style='text-align:center; margin-top:50px; color:#cc0000;'>No practicals found!</h3>";
+                return;
+            }
+
+            data.forEach(chapterObj => {
+                if (chapterObj.items.length > 0) {
+                    // Create Chapter Title
+                    const title = document.createElement('h2');
+                    title.className = 'chapter-title';
+                    title.innerHTML = `📚 ${chapterObj.chapter}`;
+                    container.appendChild(title);
+
+                    // Create Grid
+                    const grid = document.createElement('div');
+                    grid.className = 'grid';
+
+                    chapterObj.items.forEach(prac => {
+                        // Create Card
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        // Clicking card anywhere opens link
+                        card.onclick = () => window.open(prac.file, '_blank');
+
+                        card.innerHTML = `
+                            <span class="prac-number">Practical No. ${prac.no.toString().padStart(2, '0')}</span>
+                            <h3>${prac.title}</h3>
+                            <p>Click to open the detailed practical file.</p>
+                            <a href="${prac.file}" target="_blank" class="card-btn" onclick="event.stopPropagation();">Open File ➔</a>
+                        `;
+                        grid.appendChild(card);
+                    });
+
+                    container.appendChild(grid);
+                }
+            });
+        }
+
+        // Initial Render
+        renderPracticals(practicalsData);
+
+        // Search Functionality
+        function searchPracticals() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            
+            const filteredData = practicalsData.map(chapterObj => {
+                const filteredItems = chapterObj.items.filter(prac => 
+                    prac.title.toLowerCase().includes(query) || 
+                    prac.no.toString().includes(query) ||
+                    chapterObj.chapter.toLowerCase().includes(query)
+                );
+                return { ...chapterObj, items: filteredItems };
+            });
+
+            renderPracticals(filteredData);
+        }
+    </script>
+</body>
+</html>

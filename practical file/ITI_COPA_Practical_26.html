@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 26</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 26 (Practical No. 26)</div>
+        <h1>उद्देश्य: ई-कॉमर्स साइट पर सुरक्षित ऑनलाइन भुगतान (UPI/Digital Payment) की प्रक्रिया समझना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>स्मार्टफोन या कंप्यूटर</td><td>इंटरनेट कनेक्शन के साथ</td></tr>
+            <tr><td>2</td><td>UPI ऐप (PhonePe, GPay, Paytm)</td><td>पेमेंट करने के लिए</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>Cash on Delivery (COD) के बजाय यदि हम ऑनलाइन पेमेंट करना चाहें, तो वह प्रक्रिया निम्नलिखित है:</p>
+    
+    <ol>
+        <li><strong>ऑर्डर प्रोसेस:</strong> Amazon या Flipkart पर प्रोडक्ट को "Add to Cart" करके "Proceed to Buy" पर क्लिक करें।</li>
+        <li><strong>पेमेंट पेज (Payment Page):</strong> डिलीवरी एड्रेस डालने के बाद पेमेंट का पेज खुलेगा। यहाँ कई विकल्प होंगे (Credit/Debit Card, Net Banking, UPI)।</li>
+        <li><strong>UPI का चयन:</strong> सूची में से <strong>"UPI Apps (GPay, PhonePe, Paytm)"</strong> या <strong>"Enter UPI ID"</strong> विकल्प को चुनें।
+            <ul>
+                <li>यदि कंप्यूटर से कर रहे हैं, तो स्क्रीन पर एक QR Code दिखाई देगा।</li>
+                <li>यदि मोबाइल ऐप से कर रहे हैं, तो सीधे फोन में मौजूद पेमेंट ऐप (जैसे PhonePe) खुल जाएगा।</li>
+            </ul>
+        </li>
+        <li><strong>सुरक्षित भुगतान (Safe Payment):</strong>
+            <ul>
+                <li>अपने स्मार्टफोन में UPI ऐप खोलकर QR Code स्कैन करें।</li>
+                <li>दुकानदार/कंपनी का नाम (जैसे- Amazon Pay India) और अमाउंट (Amount) चेक करें।</li>
+                <li>अमाउंट सही होने पर अपना 4 या 6 अंकों का सुरक्षित <strong>UPI PIN</strong> (जो केवल आपको पता होता है) दर्ज करें।</li>
+            </ul>
+        </li>
+        <li><strong>सफलता की पुष्टि:</strong> पेमेंट होते ही ई-कॉमर्स वेबसाइट पर स्क्रीन रिफ्रेश होगी और <em>"Order Placed Successfully"</em> का मैसेज दिखाई देगा।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Payment Method Screen -->
+            <rect x="20" y="20" width="200" height="150" fill="#FFF" stroke="#424242" stroke-width="2" rx="5"/>
+            <rect x="20" y="20" width="200" height="30" fill="#E0E0E0" rx="5"/>
+            <text x="120" y="40" font-family="'Arial', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Select Payment Method</text>
+            
+            <circle cx="40" cy="70" r="6" fill="none" stroke="#757575"/> <text x="55" y="74" font-family="'Arial', sans-serif" font-size="11" fill="#000">Credit / Debit Card</text>
+            <circle cx="40" cy="95" r="6" fill="none" stroke="#757575"/> <text x="55" y="99" font-family="'Arial', sans-serif" font-size="11" fill="#000">Net Banking</text>
+            <circle cx="40" cy="120" r="6" fill="#1A73E8"/> <circle cx="40" cy="120" r="3" fill="#FFF"/> <text x="55" y="124" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#1A73E8">UPI (GPay/PhonePe) ✔</text>
+            <circle cx="40" cy="145" r="6" fill="none" stroke="#757575"/> <text x="55" y="149" font-family="'Arial', sans-serif" font-size="11" fill="#000">Cash on Delivery</text>
+
+            <!-- Arrow -->
+            <path d="M 230 95 L 280 95" fill="none" stroke="#4CAF50" stroke-width="3"/>
+            <polygon points="275,90 285,95 275,100" fill="#4CAF50"/>
+
+            <!-- UPI App Screen -->
+            <rect x="300" y="20" width="160" height="150" fill="#FFF" stroke="#4CAF50" stroke-width="2" rx="10"/>
+            <rect x="300" y="20" width="160" height="40" fill="#4CAF50" rx="10"/>
+            <text x="380" y="45" font-family="'Arial', sans-serif" font-size="14" font-weight="bold" fill="#FFF" text-anchor="middle">Enter UPI PIN</text>
+            <text x="380" y="80" font-family="'Arial', sans-serif" font-size="11" fill="#757575" text-anchor="middle">Paying to Amazon</text>
+            <text x="380" y="100" font-family="'Arial', sans-serif" font-size="16" font-weight="bold" fill="#000" text-anchor="middle">₹ 10,999</text>
+            <text x="380" y="140" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#000" text-anchor="middle">* * * *</text>
+            <line x1="330" y1="145" x2="430" y2="145" stroke="#757575" stroke-width="2"/>
+            
+            <!-- Result Box -->
+            <rect x="480" y="65" width="100" height="60" fill="#E8F5E9" stroke="#388E3C" stroke-width="2" rx="5"/>
+            <text x="530" y="90" font-family="'Arial', sans-serif" font-size="24" fill="#388E3C" text-anchor="middle">✔</text>
+            <text x="530" y="110" font-family="'Arial', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">Order Placed!</text>
+            
+        </svg>
+        <div class="diagram-caption">चित्र 26.1: ई-कॉमर्स वेबसाइट पर सुरक्षित UPI पेमेंट प्रक्रिया</div>
+    </div>
+    <h2>3. सावधानियां (Precautions)</h2>
+    <ul>
+        <li>UPI PIN केवल तब डालें जब आपको किसी को <strong>पैसे भेजने (Pay/Send)</strong> हों। पैसे प्राप्त (Receive) करने के लिए कभी भी पिन नहीं डाला जाता।</li>
+        <li>पिन डालते समय हमेशा कंपनी/दुकानदार का नाम और अमाउंट दो बार चेक करें।</li>
+    </ul>
+    <h2>4. परिणाम (Result)</h2>
+    <p>ई-कॉमर्स प्लेटफार्म पर पेमेंट गेटवे (Payment Gateway) का उपयोग करके सुरक्षित रूप से UPI (Unified Payments Interface) के माध्यम से ऑनलाइन भुगतान (Digital Payment) करने की प्रक्रिया का सफलतापूर्वक अभ्यास किया गया।</p>
+</body></html>

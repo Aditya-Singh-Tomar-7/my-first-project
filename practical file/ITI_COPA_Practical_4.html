@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 4</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 04 (Practical No. 04)</div>
+        <h1>उद्देश्य: पेरीफेरल डिवाइस कनेक्ट करना और सिस्टम बूट करना।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण एवं सामग्री (Tools & Equipment Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">क्र.सं.</th>
+                <th style="width: 50%;">उपकरण / सामग्री का नाम</th>
+                <th style="width: 40%;">मात्रा</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>सिस्टम कैबिनेट (CPU) और मॉनिटर</td>
+                <td>1 सेट</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>कीबोर्ड और माउस (USB)</td>
+                <td>1 - 1 नग</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>VGA या HDMI केबल</td>
+                <td>1 नग</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>पावर केबल (Power Cords)</td>
+                <td>2 नग</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>यू.पी.एस (UPS - Uninterruptible Power Supply)</td>
+                <td>1 नग</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>इस प्रयोग को दो भागों में बांटा गया है: पहला हार्डवेयर कनेक्शन और दूसरा सिस्टम को चालू (Boot) करना।</p>
+    
+    <h3>A. पेरीफेरल डिवाइस कनेक्ट करना (Connecting Peripherals)</h3>
+    <ol>
+        <li><span class="step-bold">मॉनिटर कनेक्ट करना:</span> VGA या HDMI केबल का एक सिरा मॉनिटर के पीछे और दूसरा सिरा कैबिनेट के बैक पैनल (I/O Panel या Graphics Card) में लगाएं। यदि VGA केबल है, तो उसके दोनों पेंच (Screws) अच्छी तरह कस दें।</li>
+        <li><span class="step-bold">कीबोर्ड और माउस कनेक्ट करना:</span> कीबोर्ड और माउस की USB केबल्स को कैबिनेट के पीछे दिए गए USB पोर्ट्स (Universal Serial Bus) में लगाएं।</li>
+        <li><span class="step-bold">पावर केबल्स लगाना:</span> एक पावर केबल को मॉनिटर के पावर पोर्ट में और दूसरी पावर केबल को कैबिनेट के पीछे SMPS वाले पावर पोर्ट में लगाएं।</li>
+        <li><span class="step-bold">UPS से कनेक्शन:</span> मॉनिटर और कैबिनेट दोनों की पावर केबल्स के दूसरे सिरे को UPS के पीछे स्थित आउटपुट सॉकेट्स में लगाएं।</li>
+        <li><span class="step-bold">मेन पावर कनेक्शन:</span> UPS की मुख्य पावर केबल को दीवार के AC पावर सॉकेट (Main Switchboard) में प्लग करें।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: System Connection Block Diagram -->
+        <svg width="600" height="220" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Main Switch -->
+            <rect x="20" y="80" width="70" height="60" rx="5" fill="#E0E0E0" stroke="#616161" stroke-width="2"/>
+            <circle cx="40" cy="110" r="10" fill="#212121"/>
+            <circle cx="70" cy="110" r="10" fill="#212121"/>
+            <text x="55" y="160" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">मेन पावर</text>
+
+            <!-- Main Power Wire -->
+            <path d="M 90 110 L 130 110" fill="none" stroke="#D32F2F" stroke-width="4" stroke-linecap="round"/>
+            <text x="110" y="105" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#D32F2F" text-anchor="middle">230V AC</text>
+
+            <!-- UPS -->
+            <rect x="140" y="70" width="80" height="80" rx="5" fill="#424242" stroke="#212121" stroke-width="2"/>
+            <rect x="150" y="85" width="20" height="10" fill="#81C784"/>
+            <circle cx="160" cy="120" r="10" fill="#E0E0E0"/>
+            <text x="180" y="165" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">UPS</text>
+
+            <!-- Power cables from UPS -->
+            <path d="M 220 90 Q 250 90 280 60" fill="none" stroke="#212121" stroke-width="3" stroke-dasharray="4,2"/>
+            <text x="235" y="75" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#444" text-anchor="middle">Power</text>
+            
+            <path d="M 220 130 Q 250 130 280 150" fill="none" stroke="#212121" stroke-width="3" stroke-dasharray="4,2"/>
+            <text x="245" y="155" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#444" text-anchor="middle">Power</text>
+
+            <!-- Monitor -->
+            <rect x="290" y="20" width="100" height="70" rx="4" fill="#E0E0E0" stroke="#424242" stroke-width="2"/>
+            <rect x="295" y="25" width="90" height="55" fill="#212121"/>
+            <text x="340" y="110" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">मॉनिटर</text>
+
+            <!-- CPU -->
+            <rect x="290" y="130" width="70" height="80" rx="4" fill="#616161" stroke="#212121" stroke-width="2"/>
+            <circle cx="325" cy="160" r="15" fill="#212121"/>
+            <text x="325" y="225" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">कैबिनेट (CPU)</text>
+
+            <!-- VGA Cable -->
+            <path d="M 325 130 L 325 90" fill="none" stroke="#1976D2" stroke-width="4"/>
+            <text x="340" y="115" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#1976D2" text-anchor="start">VGA / HDMI</text>
+
+            <!-- Keyboard & Mouse -->
+            <rect x="470" y="120" width="80" height="30" rx="3" fill="#E0E0E0" stroke="#757575" stroke-width="2"/>
+            <text x="510" y="140" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#000" text-anchor="middle">कीबोर्ड</text>
+            
+            <ellipse cx="490" cy="180" rx="12" ry="18" fill="#E0E0E0" stroke="#757575" stroke-width="2"/>
+            <text x="525" y="185" font-family="'DejaVu Sans', sans-serif" font-size="10" fill="#000" text-anchor="middle">माउस</text>
+
+            <!-- USB Cables -->
+            <path d="M 360 140 Q 420 135 470 135" fill="none" stroke="#424242" stroke-width="2"/>
+            <path d="M 360 170 Q 420 180 478 180" fill="none" stroke="#424242" stroke-width="2"/>
+            <text x="415" y="130" font-family="'DejaVu Sans', sans-serif" font-size="9" font-weight="bold" fill="#424242" text-anchor="middle">USB</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 4.1: सिस्टम कनेक्शन का ब्लॉक डायग्राम</div>
+    </div>
+
+    <h3>B. सिस्टम बूट करना (Booting the System)</h3>
+    <ol>
+        <li><span class="step-bold">मुख्य स्विच ऑन करना:</span> सबसे पहले दीवार के मेन स्विच बोर्ड को चालू (ON) करें।</li>
+        <li><span class="step-bold">UPS ऑन करना:</span> UPS का पावर बटन दबाएं। उसमें लाइट जलेगी और एक बीप की आवाज़ (Beep Sound) आएगी।</li>
+        <li><span class="step-bold">मॉनिटर ऑन करना:</span> मॉनिटर के नीचे दिए गए पावर बटन को ऑन करें (यदि वह पहले से चालू नहीं है)।</li>
+        <li><span class="step-bold">CPU ऑन करना:</span> अब कैबिनेट (CPU) के फ्रंट पैनल पर बने सबसे बड़े बटन (Power Button) को दबाएं।</li>
+        <li><span class="step-bold">POST प्रक्रिया:</span> सिस्टम चालू होगा और POST (Power On Self Test) प्रक्रिया शुरू होगी, जिसमें BIOS हार्डवेयर की जांच करता है।</li>
+        <li><span class="step-bold">डेस्कटॉप स्क्रीन:</span> कुछ सेकंड बाद ऑपरेटिंग सिस्टम (जैसे Windows) लोड हो जाएगा और डेस्कटॉप स्क्रीन दिखाई देने लगेगी।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: PC Rear Panel Ports -->
+        <svg width="350" height="260" viewBox="0 0 350 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cabinet Outline -->
+            <rect x="30" y="10" width="130" height="240" rx="3" fill="#E0E0E0" stroke="#616161" stroke-width="3"/>
+            
+            <!-- SMPS Area -->
+            <rect x="40" y="20" width="110" height="60" fill="#CFD8DC" stroke="#90A4AE" stroke-width="2"/>
+            <rect x="50" y="30" width="30" height="20" fill="#212121"/> <!-- Power Socket -->
+            <circle cx="110" cy="50" r="18" fill="#424242"/> <!-- SMPS Fan -->
+            
+            <!-- Pointer to Power -->
+            <line x1="65" y1="40" x2="190" y2="40" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="44" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#D32F2F" text-anchor="start">Power Port (पावर केबल)</text>
+
+            <!-- I/O Shield -->
+            <rect x="45" y="90" width="40" height="120" fill="#B0BEC5" stroke="#78909C" stroke-width="2"/>
+            
+            <!-- PS/2 Ports -->
+            <circle cx="65" cy="100" r="6" fill="#673AB7"/>
+            <circle cx="65" cy="115" r="6" fill="#4CAF50"/>
+            <line x1="65" y1="107" x2="190" y2="107" stroke="#424242" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="111" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#424242" text-anchor="start">PS/2 पोर्ट्स (पुराने KB/Mouse)</text>
+
+            <!-- VGA Port -->
+            <polygon points="55,130 75,130 72,140 58,140" fill="#1976D2"/>
+            <line x1="65" y1="135" x2="190" y2="135" stroke="#1976D2" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="139" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#1976D2" text-anchor="start">VGA पोर्ट (मॉनिटर के लिए)</text>
+
+            <!-- USB Ports -->
+            <rect x="58" y="150" width="14" height="6" fill="#212121"/>
+            <rect x="58" y="160" width="14" height="6" fill="#212121"/>
+            <line x1="65" y1="155" x2="190" y2="155" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="159" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#000" text-anchor="start">USB पोर्ट्स (कीबोर्ड / माउस)</text>
+
+            <!-- LAN Port -->
+            <rect x="58" y="175" width="14" height="10" fill="#424242"/>
+            <line x1="65" y1="180" x2="190" y2="180" stroke="#424242" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="184" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#424242" text-anchor="start">LAN पोर्ट (इंटरनेट)</text>
+
+            <!-- Audio Jacks -->
+            <circle cx="55" cy="200" r="4" fill="#E91E63"/>
+            <circle cx="65" cy="200" r="4" fill="#8BC34A"/>
+            <circle cx="75" cy="200" r="4" fill="#03A9F4"/>
+            <line x1="65" y1="200" x2="190" y2="200" stroke="#757575" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="195" y="204" font-family="'DejaVu Sans', sans-serif" font-size="10" font-weight="bold" fill="#757575" text-anchor="start">ऑडियो जैक (स्पीकर/माइक)</text>
+            
+            <!-- Expansion Slots -->
+            <rect x="40" y="220" width="90" height="10" fill="#9E9E9E" stroke="#757575"/>
+            <rect x="40" y="235" width="90" height="10" fill="#9E9E9E" stroke="#757575"/>
+
+        </svg>
+        <div class="diagram-caption">चित्र 4.2: कैबिनेट का बैक पैनल (Rear Panel Ports)</div>
+    </div>
+
+    <h2>3. सुरक्षा सावधानियां (Safety Precautions)</h2>
+    <ul>
+        <li>केबल्स को कनेक्ट करते समय मुख्य बिजली की आपूर्ति (Main Power) हमेशा बंद रखें।</li>
+        <li>VGA या HDMI केबल को पोर्ट में लगाते समय पिन की दिशा का ध्यान रखें, जबरदस्ती करने पर पिन मुड़ या टूट सकती हैं।</li>
+        <li>यह सुनिश्चित करें कि सभी पावर केबल्स टाइट लगी हों; ढीले कनेक्शन से स्पार्किंग (Sparking) हो सकती है जिससे पार्ट्स जल सकते हैं।</li>
+    </ul>
+
+    <h2>4. परिणाम (Result)</h2>
+    <p>कंप्यूटर सिस्टम के सभी पेरीफेरल डिवाइसों (मॉनिटर, कीबोर्ड, माउस) को सफलतापूर्वक कैबिनेट और UPS से कनेक्ट किया गया, तथा सिस्टम को सुरक्षित तरीके से बूट कर डेस्कटॉप स्क्रीन प्राप्त की गई।</p>
+
+</body>
+</html>

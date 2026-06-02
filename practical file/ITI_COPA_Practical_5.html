@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>ITI COPA Practical 5</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 20px; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+    max-width: 800px; /* Make it look good on screen too */
+    margin-left: auto; margin-right: auto;
+    border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+h3 { color: #b30000; font-size: 11.5pt; margin-top: 15px; margin-bottom: 5px; }
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%; overflow-x: auto;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444; overflow-x: auto;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+.sql-box {
+    background-color: #2b2b2b; color: #a9b7c6; font-family: monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+}
+.sql-keyword { color: #cc7832; font-weight: bold; }
+.sql-string { color: #6a8759; }
+</style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 05 (Practical No. 05)</div>
+        <h1>उद्देश्य: विंडोज ऑपरेटिंग सिस्टम (Windows OS) और बूटिंग (Booting) प्रक्रिया का परिचय।</h1>
+    </div>
+
+    <h2>1. आवश्यक उपकरण (Tools Required)</h2>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">क्र.सं.</th>
+                <th style="width: 55%;">उपकरण का नाम</th>
+                <th style="width: 30%;">विवरण</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>कंप्यूटर सिस्टम (Desktop/Laptop)</td>
+                <td>1 सेट</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ऑपरेटिंग सिस्टम (OS)</td>
+                <td>Windows 10 या 11 (इंस्टॉल किया हुआ)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. ऑपरेटिंग सिस्टम (Operating System) का परिचय</h2>
+    <p>ऑपरेटिंग सिस्टम एक मुख्य सिस्टम सॉफ्टवेयर (System Software) है जो उपयोगकर्ता (User) और कंप्यूटर हार्डवेयर के बीच एक इंटरफेस (पुल) का कार्य करता है। इसके बिना कंप्यूटर कोई भी कार्य नहीं कर सकता। विंडोज (Windows) दुनिया का सबसे लोकप्रिय ग्राफिकल यूजर इंटरफेस (GUI) आधारित ऑपरेटिंग सिस्टम है जिसे माइक्रोसॉफ्ट (Microsoft) द्वारा बनाया गया है।</p>
+    
+    <div class="diagram-box">
+        <!-- SVG Diagram: OS Layers -->
+        <svg width="400" height="230" viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- User -->
+            <rect x="100" y="20" width="200" height="35" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+            <text x="200" y="42" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#0D47A1" text-anchor="middle">उपयोगकर्ता (User 1, User 2...)</text>
+            
+            <path d="M 200 55 L 200 70" fill="none" stroke="#424242" stroke-width="2" />
+            <polygon points="195,65 205,65 200,75" fill="#424242"/>
+            <polygon points="195,60 205,60 200,50" fill="#424242"/>
+
+            <!-- Application -->
+            <rect x="80" y="75" width="240" height="35" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+            <text x="200" y="97" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#1B5E20" text-anchor="middle">एप्लीकेशन सॉफ्टवेयर (MS Word, Chrome)</text>
+
+            <path d="M 200 110 L 200 125" fill="none" stroke="#424242" stroke-width="2" />
+            <polygon points="195,120 205,120 200,130" fill="#424242"/>
+            <polygon points="195,115 205,115 200,105" fill="#424242"/>
+
+            <!-- Operating System -->
+            <rect x="60" y="130" width="280" height="35" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+            <text x="200" y="152" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#E65100" text-anchor="middle">ऑपरेटिंग सिस्टम (Windows OS)</text>
+
+            <path d="M 200 165 L 200 180" fill="none" stroke="#424242" stroke-width="2" />
+            <polygon points="195,175 205,175 200,185" fill="#424242"/>
+            <polygon points="195,170 205,170 200,160" fill="#424242"/>
+
+            <!-- Hardware -->
+            <rect x="40" y="185" width="320" height="35" rx="8" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2"/>
+            <text x="200" y="207" font-family="'DejaVu Sans', sans-serif" font-size="12" font-weight="bold" fill="#B71C1C" text-anchor="middle">हार्डवेयर (CPU, RAM, Hard Disk, IO Devices)</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 5.1: ऑपरेटिंग सिस्टम की कार्यप्रणाली (Architecture Layer)</div>
+    </div>
+
+    <h2>3. बूटिंग प्रक्रिया (Booting Process) क्या है?</h2>
+    <p>कंप्यूटर को चालू करने से लेकर डेस्कटॉप स्क्रीन (Desktop Screen) के आने तक की पूरी प्रक्रिया को <strong>बूटिंग (Booting)</strong> कहा जाता है। इस प्रक्रिया में ऑपरेटिंग सिस्टम (Windows) हार्ड डिस्क (HDD/SSD) से निकलकर रैम (RAM) में लोड होता है ताकि कंप्यूटर कार्य करने के लिए तैयार हो सके।</p>
+    
+    <h3>बूटिंग के प्रकार (Types of Booting):</h3>
+    <ul>
+        <li><span class="step-bold">कोल्ड बूटिंग (Cold Booting):</span> जब कंप्यूटर पूरी तरह से बंद हो (Power OFF) और उसे पहली बार मेन स्विच या CPU के पावर बटन को दबाकर चालू किया जाता है, तो उसे कोल्ड बूटिंग कहते हैं।</li>
+        <li><span class="step-bold">वार्म बूटिंग (Warm Booting):</span> जब पहले से चालू कंप्यूटर को किसी कारणवश (सिस्टम हैंग होने पर या सॉफ्टवेयर अपडेट के बाद) रीस्टार्ट (Restart) किया जाता है, तो उसे वार्म बूटिंग कहते हैं। इसके लिए कीबोर्ड से `Ctrl + Alt + Delete` दबाया जाता है या रीस्टार्ट बटन का उपयोग किया जाता है।</li>
+    </ul>
+
+    <h2>4. बूटिंग के मुख्य चरण (Steps in Booting)</h2>
+    <ol>
+        <li><strong>Power ON:</strong> कंप्यूटर का पावर बटन दबाया जाता है। एसएमपीएस (SMPS) मदरबोर्ड को पावर देता है।</li>
+        <li><strong>POST (Power-On Self-Test):</strong> BIOS (Basic Input/Output System) चिप POST प्रक्रिया चलाती है, जो चेक करती है कि कीबोर्ड, माउस, रैम आदि हार्डवेयर ठीक से जुड़े हैं या नहीं।</li>
+        <li><strong>Boot Sequence (MBR/GPT):</strong> BIOS यह पता लगाता है कि ऑपरेटिंग सिस्टम कहाँ रखा है (हार्ड डिस्क या SSD में)। यह मास्टर बूट रिकॉर्ड (MBR) को ढूंढता है।</li>
+        <li><strong>OS Loading into RAM:</strong> बूटलोडर (Bootloader) एक्टिव हो जाता है और विंडोज ऑपरेटिंग सिस्टम की मुख्य फाइलों को हार्ड डिस्क से उठाकर मुख्य मेमोरी (RAM) में लोड कर देता है।</li>
+        <li><strong>Desktop Initialization:</strong> अंत में वेलकम स्क्रीन या डेस्कटॉप आ जाता है और सिस्टम काम करने के लिए तैयार हो जाता है।</li>
+    </ol>
+
+    <div class="diagram-box">
+        <!-- SVG Diagram: Booting Process Flowchart -->
+        <svg width="650" height="150" viewBox="0 0 650 150" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Box 1 -->
+            <rect x="10" y="40" width="90" height="60" rx="5" fill="#ECEFF1" stroke="#455A64" stroke-width="2"/>
+            <text x="55" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#263238" text-anchor="middle">Power ON</text>
+            <text x="55" y="85" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#546E7A" text-anchor="middle">बटन दबाना</text>
+
+            <path d="M 100 70 L 130 70" fill="none" stroke="#263238" stroke-width="2" />
+            <polygon points="125,65 135,70 125,75" fill="#263238"/>
+
+            <!-- Box 2 -->
+            <rect x="135" y="40" width="100" height="60" rx="5" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+            <text x="185" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#01579B" text-anchor="middle">POST Test</text>
+            <text x="185" y="85" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#0277BD" text-anchor="middle">(BIOS द्वारा)</text>
+
+            <path d="M 235 70 L 265 70" fill="none" stroke="#263238" stroke-width="2" />
+            <polygon points="260,65 270,70 260,75" fill="#263238"/>
+
+            <!-- Box 3 -->
+            <rect x="270" y="40" width="100" height="60" rx="5" fill="#F3E5F5" stroke="#8E24AA" stroke-width="2"/>
+            <text x="320" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#4A148C" text-anchor="middle">MBR/Bootloader</text>
+            <text x="320" y="85" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#6A1B9A" text-anchor="middle">OS को खोजना</text>
+
+            <path d="M 370 70 L 400 70" fill="none" stroke="#263238" stroke-width="2" />
+            <polygon points="395,65 405,70 395,75" fill="#263238"/>
+
+            <!-- Box 4 -->
+            <rect x="405" y="40" width="100" height="60" rx="5" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+            <text x="455" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#1B5E20" text-anchor="middle">OS Loading</text>
+            <text x="455" y="85" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#2E7D32" text-anchor="middle">HDD से RAM में</text>
+
+            <path d="M 505 70 L 535 70" fill="none" stroke="#263238" stroke-width="2" />
+            <polygon points="530,65 540,70 530,75" fill="#263238"/>
+
+            <!-- Box 5 -->
+            <rect x="540" y="40" width="90" height="60" rx="5" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+            <text x="585" y="65" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="bold" fill="#E65100" text-anchor="middle">Desktop</text>
+            <text x="585" y="85" font-family="'DejaVu Sans', sans-serif" font-size="9" fill="#EF6C00" text-anchor="middle">सिस्टम रेडी</text>
+
+        </svg>
+        <div class="diagram-caption">चित्र 5.2: सिस्टम बूटिंग प्रक्रिया के चरण (Booting Sequence)</div>
+    </div>
+
+    <h2>5. सावधानियां (Precautions)</h2>
+    <ul>
+        <li>बूटिंग प्रक्रिया के दौरान सिस्टम को कभी भी अचानक पावर बटन दबाकर बंद न करें, इससे विंडोज करप्ट (Corrupt) हो सकती है।</li>
+        <li>बार-बार वार्म बूटिंग (Restart) न करें; ऐसा केवल सिस्टम के क्रैश या हैंग होने की स्थिति में ही करें।</li>
+        <li>सिस्टम बूट होते समय कीबोर्ड की कुंजियों (Keys) को बेवजह न दबाएं, इससे बूट मेन्यू या BIOS खुल सकता है।</li>
+    </ul>
+
+    <h2>6. परिणाम (Result)</h2>
+    <p>विंडोज ऑपरेटिंग सिस्टम की मूल अवधारणा, इसके लेयर्स और सिस्टम की कोल्ड तथा वार्म बूटिंग प्रक्रिया का सफलतापूर्वक अध्ययन किया गया।</p>
+
+</body>
+</html>

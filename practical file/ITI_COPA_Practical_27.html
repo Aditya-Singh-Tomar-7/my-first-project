@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>ITI COPA Practical 27</title><style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: 'DejaVu Sans', sans-serif;
+        font-size: 10pt;
+        color: #777;
+    }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    font-family: 'DejaVu Sans', 'Noto Sans Devanagari', sans-serif;
+    margin: 0; padding: 0; color: #222; line-height: 1.6; font-size: 11pt;
+    background-color: #ffffff;
+}
+.header-container {
+    text-align: center; border-bottom: 3px double #cc0000;
+    padding-bottom: 12px; margin-bottom: 20px;
+}
+.practical-no {
+    font-size: 14pt; font-weight: bold; color: #cc0000;
+    text-transform: uppercase; margin: 0 0 5px 0;
+}
+h1 { font-size: 16pt; color: #111; margin: 5px 0 0 0; }
+h2 {
+    color: #003366; font-size: 13pt; margin-top: 20px; margin-bottom: 8px;
+    border-left: 5px solid #003366; padding-left: 10px; page-break-after: avoid;
+}
+p, li { text-align: justify; margin-bottom: 6px; }
+ul, ol { margin-top: 5px; padding-left: 25px; }
+.tools-table {
+    width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10.5pt;
+}
+.tools-table th, .tools-table td {
+    border: 1px solid #cccccc; padding: 8px; text-align: left;
+}
+.tools-table th { background-color: #f5f5f5; color: #003366; font-weight: bold; }
+.diagram-box {
+    text-align: center; margin: 20px auto; padding: 10px;
+    border: 1px solid #e0e0e0; background-color: #fafafa;
+    page-break-inside: avoid; max-width: 95%;
+}
+.diagram-caption { font-weight: bold; margin-top: 8px; color: #444; font-size: 10.5pt; }
+.cmd-box {
+    background-color: #f0f0f0; color: #d32f2f; font-family: monospace;
+    padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold;
+}
+.terminal-box {
+    background-color: #0c0c0c; color: #cccccc; font-family: 'Courier New', monospace;
+    padding: 10px; border-radius: 5px; text-align: left; margin: 10px 0;
+    font-size: 10pt; border: 1px solid #444;
+}
+.code-box {
+    background-color: #f4f4f4; border-left: 4px solid #4CAF50;
+    padding: 10px; font-family: 'Courier New', monospace; font-size: 10pt;
+    text-align: left; overflow-x: auto;
+}
+</style></head>
+<body>
+    <div class="header-container">
+        <div class="practical-no">प्रयोग संख्या - 27 (Practical No. 27)</div>
+        <h1>उद्देश्य: विंडोज सिक्योरिटी / एंटीवायरस से कंप्यूटर को स्कैन करना।</h1>
+    </div>
+    <h2>1. आवश्यक उपकरण एवं सॉफ्टवेयर</h2>
+    <table class="tools-table">
+        <thead><tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">सॉफ्टवेयर / उपकरण</th><th style="width: 40%;">विवरण</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC)</td><td>विंडोज ऑपरेटिंग सिस्टम के साथ</td></tr>
+            <tr><td>2</td><td>Windows Security</td><td>इन-बिल्ट एंटीवायरस (Windows Defender)</td></tr>
+        </tbody>
+    </table>
+    <h2>2. कार्यविधि (Procedure)</h2>
+    <p>कंप्यूटर को वायरस (Virus) और मैलवेयर (Malware) से सुरक्षित रखने के लिए उसे स्कैन करना आवश्यक है। Windows 10/11 में इन-बिल्ट 'Windows Security' होती है:</p>
+    <ol>
+        <li>Start Menu पर क्लिक करें और <strong>Windows Security</strong> सर्च करके उसे ओपन करें।</li>
+        <li>लेफ्ट मेन्यू में <strong>Virus & threat protection</strong> विकल्प पर क्लिक करें।</li>
+        <li>यहां आपको <strong>'Quick scan'</strong> का बटन दिखाई देगा। इस पर क्लिक करें।</li>
+        <li>सिस्टम स्कैन शुरू कर देगा। इसमें कुछ मिनटों का समय लग सकता है।</li>
+        <li>यदि आप पूरा कंप्यूटर गहराई से स्कैन करना चाहते हैं, तो 'Scan options' पर क्लिक करें और <strong>'Full scan'</strong> को चुनकर 'Scan now' पर क्लिक करें।</li>
+        <li>स्कैन पूरा होने के बाद, यदि कोई वायरस मिलता है, तो उसे 'Quarantine' या 'Remove' करने का विकल्प आएगा, जिसे सेलेक्ट करके सिस्टम को सुरक्षित करें।</li>
+    </ol>
+    <div class="diagram-box">
+        <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Window Frame -->
+            <rect x="50" y="20" width="500" height="160" fill="#FFF" stroke="#2196F3" stroke-width="2" rx="4"/>
+            <rect x="50" y="20" width="500" height="30" fill="#E3F2FD" rx="4"/>
+            <text x="65" y="40" font-family="'Segoe UI', sans-serif" font-size="12" fill="#0D47A1" font-weight="bold">🛡 Windows Security</text>
+            
+            <!-- Sidebar -->
+            <rect x="50" y="50" width="140" height="130" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+            <text x="60" y="70" font-family="'Segoe UI', sans-serif" font-size="10" fill="#000">Home</text>
+            <rect x="55" y="80" width="130" height="20" fill="#E3F2FD" rx="2"/>
+            <text x="60" y="94" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="bold" fill="#0D47A1">Virus & threat protection</text>
+            <text x="60" y="118" font-family="'Segoe UI', sans-serif" font-size="10" fill="#000">Account protection</text>
+
+            <!-- Main Content -->
+            <text x="210" y="75" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#000">Current threats</text>
+            <text x="210" y="95" font-family="'Segoe UI', sans-serif" font-size="11" fill="#4CAF50" font-weight="bold">✔ No current threats found.</text>
+            <text x="210" y="115" font-family="'Segoe UI', sans-serif" font-size="10" fill="#757575">Last scan: Today, Quick scan</text>
+            
+            <!-- Scan Button -->
+            <rect x="210" y="130" width="100" height="30" fill="#E0E0E0" stroke="#9E9E9E" rx="3"/>
+            <text x="260" y="149" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">Quick scan</text>
+            <text x="330" y="149" font-family="'Segoe UI', sans-serif" font-size="11" fill="#1976D2" text-decoration="underline">Scan options</text>
+            
+            <!-- Pointer -->
+            <path d="M 280 180 L 260 165" fill="none" stroke="#D32F2F" stroke-width="2"/>
+            <polygon points="255,170 260,165 265,165" fill="#D32F2F"/>
+        </svg>
+        <div class="diagram-caption">चित्र 27.1: Windows Security (Defender) द्वारा वायरस स्कैन प्रक्रिया</div>
+    </div>
+    <h2>3. परिणाम (Result)</h2>
+    <p>विंडोज सिक्योरिटी (इन-बिल्ट एंटीवायरस) का उपयोग करके कंप्यूटर का क्विक स्कैन (Quick Scan) सफलतापूर्वक पूरा किया गया।</p>
+</body></html>
