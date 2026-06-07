@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 14 - Anug</title>
+    <style>
+        
+@page { size: A4; margin: 20mm 15mm; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eaeff2; margin: 0; padding: 20px; color: #333; }
+.paper { background: #fff; max-width: 800px; margin: 0 auto; padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-radius: 8px; }
+.header { text-align: center; border-bottom: 3px double #2c3e50; padding-bottom: 20px; margin-bottom: 30px; }
+.header h2 { color: #e74c3c; font-size: 18px; margin: 0 0 10px 0; text-transform: uppercase; }
+.header h1 { color: #2c3e50; font-size: 22px; margin: 0; }
+.section-title { color: #2980b9; border-left: 4px solid #2980b9; padding-left: 10px; margin-top: 30px; }
+p, li { line-height: 1.6; font-size: 15px; }
+ul, ol { padding-left: 20px; }
+.terminal { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 6px; font-family: 'Consolas', monospace; overflow-x: auto; margin: 20px 0; border-left: 4px solid #4caf50; font-size: 14px; line-height: 1.5; }
+.code-box { background: #f8f9fa; color: #333; padding: 20px; border-radius: 6px; font-family: 'Consolas', monospace; border-left: 4px solid #ff9800; margin: 20px 0; overflow-x: auto; font-size: 14px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+.table-box { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+.table-box th, .table-box td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+.table-box th { background-color: #2c3e50; color: #fff; }
+.nav-buttons { display: flex; justify-content: space-between; max-width: 800px; margin: 0 auto 20px auto; }
+.btn { text-decoration: none; background: #34495e; color: #fff; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; border:none; display: inline-flex; align-items: center; gap: 8px; }
+.btn:hover { background: #2c3e50; }
+.btn-print { background: #e74c3c; }
+.btn-print:hover { background: #c0392b; }
+@media print {
+    body { background: #fff; padding: 0; }
+    .paper { box-shadow: none; border-radius: 0; padding: 0; max-width: 100%; }
+    .nav-buttons { display: none; }
+}
+
+    </style>
+</head>
+<body>
+    <div class="nav-buttons">
+        <a href="index.html" class="btn">🏠 Back to Index</a>
+        <button onclick="window.print()" class="btn btn-print">🖨️ Print Practical</button>
+    </div>
+    <div class="paper">
+        <div class="header">
+            <h2>प्रयोग संख्या - 14 (Practical No. 14)</h2>
+            <h1>उद्देश्य: डेटाबेस टेबल्स के बीच प्राइमरी की (Primary Key) और फॉरेन की (Foreign Key) रिलेशनशिप बनाना।</h1>
+        </div>
+        
+        <h3 class="section-title">1. आवश्यक उपकरण एवं सामग्री</h3>
+        <table class="table-box">
+            <tr><th style="width: 15%;">क्र.सं.</th><th style="width: 45%;">उपकरण / सॉफ्टवेयर</th><th style="width: 40%;">विवरण</th></tr>
+            <tr><td>1</td><td>कंप्यूटर सिस्टम (PC/Laptop)</td><td>Windows OS के साथ</td></tr>
+            <tr><td>2</td><td>संबंधित सॉफ्टवेयर / टूल्स</td><td>प्रैक्टिकल विषय के अनुसार</td></tr>
+        </table>
+
+        <h3 class="section-title">2. कार्यविधि (Procedure)</h3>
+        <p>इस प्रैक्टिकल को पूरा करने के लिए निम्नलिखित चरणों का पालन किया गया:</p>
+        <ul>
+            <li>कंप्यूटर चालू करके आवश्यक सॉफ्टवेयर या टूल ओपन किया गया।</li>
+            <li>दिए गए निर्देशों और प्रक्रिया के अनुसार टास्क को परफॉर्म किया गया।</li>
+            <li>आवश्यक कमांड्स, फॉर्मूले या कोड को लिखकर एग्जीक्यूट किया गया और उसका आउटपुट जाँचा गया।</li>
+        </ul>
+
+        <div class="code-box"><strong>Primary Key & Foreign Key (SQL):</strong><br><br><code>CREATE TABLE Orders (<br>&nbsp;&nbsp;OrderID int NOT NULL,<br>&nbsp;&nbsp;OrderNumber int NOT NULL,<br>&nbsp;&nbsp;PersonID int,<br>&nbsp;&nbsp;PRIMARY KEY (OrderID),<br>&nbsp;&nbsp;FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)<br>);</code></div>
+
+        <h3 class="section-title">3. परिणाम (Result)</h3>
+        <p>उपरोक्त विधि, कमांड्स और टूल्स का सुरक्षित रूप से उपयोग करते हुए <strong>"डेटाबेस टेबल्स के बीच प्राइमरी की (Primary Key) और फॉरेन की (Foreign Key) रिलेशनशिप बनाना।"</strong> का सफलतापूर्वक अभ्यास किया गया और वांछित आउटपुट प्राप्त किया गया।</p>
+        
+        <div style="margin-top: 60px; display: flex; justify-content: space-between; font-weight: bold; color: #555;">
+            <div>Date: _________</div>
+            <div>Instructor Sign: _________</div>
+        </div>
+    </div>
+</body>
+</html>
